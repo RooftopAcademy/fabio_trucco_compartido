@@ -1,3 +1,5 @@
+
+
 // DOM events 
 
 const store = new Store;
@@ -71,8 +73,20 @@ let openMenu = function (){  //Despliega el menu
 }
 
 
-   
+// Show / Hide aside-menu event
 
+asideMenu = document.getElementById("aside-menu");
 
+let myScrollFunc = function() {
+  let y = window.scrollY;
+  let x = window.innerWidth;
 
+  if (y >= 500 && x >= 1280) {
+    asideMenu.className = "aside-menu show"
+  } else {
+    asideMenu.className = "aside-menu"
+  }
+};
+
+window.addEventListener("scroll", myScrollFunc);
 

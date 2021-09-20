@@ -41,5 +41,9 @@ class Store{
         this.usersList.push(this.user);
     }
 
+    getUsers() {
+        return this.usersList;
+    }
+
 }
 
