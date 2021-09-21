@@ -5,6 +5,7 @@ class Store{
         this.catalog = new Catalog;
         this.cart = new Cart;
         this.usersList = [];
+        this.comments = [];
     }
 
     getUser(){
@@ -55,6 +56,14 @@ class Store{
 
     getUsers() {
         return this.usersList;
+    }
+
+    getComments(){
+        return this.comments;
+    }
+
+    addComment(c){
+        this.comments.push(c);
     }
 
 }

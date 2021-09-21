@@ -1,7 +1,6 @@
 function productItem(product){
-    console.log(product)
     return `
-    <article class="shop-item">
+    <article class="shop-item" id="shop-item ${product.getId()}">
         <span class="shop-item-name">${product.getName()}</span>
         <img class="shop-item-image" src="images/chess-set.png" alt="CHESS">
         <div class="shop-item-add">
@@ -15,10 +14,14 @@ function productItem(product){
                 <li>Material: ${product.getMaterial()}</li>
                 <li>Theme: ${product.getTheme()}</li>
                 <br>
-                <button class="comments" type="button" id="button-comments">User's Reviews</button>
+                <button class="comments-button" type="button" id="comments-button ${product.getId()}" onclick="openComments(this.id)">User's Reviews</button>
             </ul>
-        </div>      
-        
+        </div> 
+        <div class="comments-div" id="comments-div">
+            <ul class="comments-list" id="comments-list ${product.getId()}">
+                
+            </ul>
+        </div>
     </article>
     `
 }

@@ -52,23 +52,20 @@ let submitFunc = function() {
             document.getElementById('submit').style.backgroundColor = "#247255";
             document.getElementById('submit').disabled = false;
         }, 3000)
-        
-
+      
         return false;
     }
-    
 
-    
-let click = 0;
+let menuClick = 0;
 let openMenu = function (){  //Despliega el menu
     const navMenu = document.getElementsByClassName("nav-menu")[0];
-    click += 1;
-    if (click == 1){
+    menuClick += 1;
+    if (menuClick == 1){
     navMenu.style.display = "inline-block";
     }
     else{
     navMenu.style.display = "none";
-    click = 0;
+    menuClick = 0;
     }
 }
 
@@ -90,11 +87,48 @@ let myScrollFunc = function() {
 
 window.addEventListener("scroll", myScrollFunc);
 
-// Consuling an API fr information
+// Consuling an API for information
 
-async function fetchApisUsers(){
-    const fetch = await fetch('https://jsonplaceholder.typicode.com/users')
-    const data = await fetch.then(res => res.json())
-    
-    console.log(data)
+
+(() => {
+  async function getData(){
+    try{
+      let res = await fetch('https://jsonplaceholder.typicode.com/comments'),
+      json = await res.json();
+
+      if (!res.ok){ throw new Error("algo saió mal")}
+      //console.log(json)
+
+      // Storing useful comments on store.comments
+      json.forEach((comment) => {
+        if ( comment["postId"] >= 1 || comment["postId"] <= 8 ) {
+          let newComment = CommentFactory.create(comment);
+          store.addComment(newComment);
+        } 
+      })
+      console.log(store.getComments())
+
+      commentsList(store.getComments());
+
+    }catch(err){
+        console.log(err)
+    }finally{
+        console.log("debería mostrarse..")
+    }
+  }
+  getData();
+})()
+
+let commentsClick = 0;
+let openComments = function (id){  // Displays user's reviews
+  const commentsList = document.getElementById(`comments-list ${id.slice(-1)}`);  
+  // Use the id of the button to modify the comments list
+  commentsClick += 1;
+  if (commentsClick == 1){
+  commentsList.style.display = "block";
+  }
+  else{
+  commentsList.style.display = "none";
+  commentsClick = 0;
+  }
 }

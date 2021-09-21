@@ -292,7 +292,7 @@ html, body{
     font-size: 1.5em;
     margin-left: 30px;
 }
-.comments{
+.comments-button{
     font-size: 1.4em;
     margin-left: 60px;
     padding: 5px;
@@ -331,6 +331,9 @@ html, body{
 }
 .aside ul li a{
     color:black
+}
+.comments-list{
+    display: none;
 }
 
 @media all and (max-width: 860px){
