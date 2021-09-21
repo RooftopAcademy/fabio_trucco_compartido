@@ -14,8 +14,11 @@ function productItem(product){
                 <li>Maker: ${product.getMaker()}</li>
                 <li>Material: ${product.getMaterial()}</li>
                 <li>Theme: ${product.getTheme()}</li>
+                <br>
+                <button class="comments" type="button" id="button-comments">User's Reviews</button>
             </ul>
-        </div>         
+        </div>      
+        
     </article>
     `
 }

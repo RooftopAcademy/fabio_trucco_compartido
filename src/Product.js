@@ -6,6 +6,7 @@ class Product{
         this.material = String;
         this.theme = String;  //Temática: clásica, españoles contra incas, guerreros, geométrico etc.
         this.price = Number;
+        this.comments = Array;
     }
     getId(){
         return this.id;
@@ -44,6 +45,12 @@ class Product{
     }
     setPrice(value){
         return this.price = value;
+    }
+    getComments(){
+        return this.comments;
+    }
+    addComment(comment){
+        this.comments.push(comment);
     }
 
 }

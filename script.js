@@ -90,3 +90,11 @@ let myScrollFunc = function() {
 
 window.addEventListener("scroll", myScrollFunc);
 
+// Consuling an API fr information
+
+async function fetchApisUsers(){
+    const fetch = await fetch('https://jsonplaceholder.typicode.com/users')
+    const data = await fetch.then(res => res.json())
+    
+    console.log(data)
+}

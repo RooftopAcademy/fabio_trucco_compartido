@@ -1,5 +1,6 @@
 class User{
     constructor(){
+        this.id = String;
         this.email = String;
         this.firstName = String;
         this.lastName = String;
@@ -7,6 +8,13 @@ class User{
         this.subject = String; 
         this.checked = Boolean;
     }
+    getId(){
+        return this.id
+    }
+    setId (value) { 
+        return this.id = value;
+        }
+        
     getEmail(){
         return this.email;
     }

@@ -254,7 +254,7 @@ html, body{
     font-size: 1.5em;
     border-radius: 5px;
     float: right;
-    background-color:rgb(255, 255, 255);
+    background-color:burlywood;
     border-color:rgb(142, 142, 241);
     color: black;
 }
@@ -277,7 +277,8 @@ html, body{
     margin-bottom: 15px;
 }
 .shop-item-image{
-    height: 250px;
+    height: 200px;
+    
 }
 .shop-item-detail{
     display: inline-block;
@@ -290,6 +291,14 @@ html, body{
     text-decoration:double;
     font-size: 1.5em;
     margin-left: 30px;
+}
+.comments{
+    font-size: 1.4em;
+    margin-left: 60px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: chocolate;
+    color: white;
 }
 .home-btn{
     size: 5em;
