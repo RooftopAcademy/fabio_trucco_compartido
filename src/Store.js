@@ -66,5 +66,13 @@ class Store{
         this.comments.push(c);
     }
 
+    loadUsersList(){
+        // Load the users list by fetching an api and getting all users
+    }
+
+    getNextId(){
+        return this.usersList.length + 1;
+    }
+
 }
 

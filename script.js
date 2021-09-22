@@ -1,5 +1,3 @@
-
-
 // DOM events 
 
 const store = new Store;
@@ -8,7 +6,8 @@ store.fetchProducts();
 
 let catalog = store.getCatalog();
 
-renderListProducts();
+renderListProducts(); 
+
 
 function renderListProducts(){
     Array.from(document.getElementsByClassName('shop-items'))
@@ -17,44 +16,75 @@ function renderListProducts(){
         })
 }
 
+function showError(source, message){
+  alert(message)
+  let input = document.getElementById(source);
+  input.style.border = "2px solid red"
+  document.getElementById("container-form").style.border = "2px solid red"
+  input.focus();
+}
 
-let submitFunc = function() {
-        const email = document.getElementById('lmail').value;
-        const name = document.getElementById('fname').value;
-        const last = document.getElementById('lname').value;
-        const country = document.getElementById('country').value;
-        const subject = document.getElementById('subject').value;
-        const checkMail = document.querySelector('.checkmail').checked;
+let submitButton = document.getElementById("submit")
+  .addEventListener("click", function(e){
+    e.preventDefault();
 
-        store.getUser().setEmail(email);
-        store.getUser().setFirstName(name);
-        store.getUser().setLastName(last);
-        store.getUser().setCountry(country);
-        store.getUser().setSubject(subject);
-        store.getUser().setChecked(checkMail);
+    const email = document.getElementById('lmail').value;
+    const name = document.getElementById('fname').value;
+    const last = document.getElementById('lname').value;
+    const country = document.getElementById('country').value;
+    const subject = document.getElementById('subject').value;
+    const checkMail = document.querySelector('.checkmail').checked;
 
-        store.fetchUsers(store.user);
+    let user = store.getUser();
+    //debugger;
+    try{
+      user.setId(store.getNextId())
+      user.setEmail(email);
+      user.setFirstName(name);
+      user.setLastName(last);
+      user.setCountry(country);
+      user.setSubject(subject);
+      user.setChecked(checkMail);
 
-        let div = document.createElement('div');
-        div.innerHTML = "&#10003;&nbsp;&nbsp;";
-        div.classList.add('success-message');
-        let message = document.createTextNode("Great! We have sent you an e-mail to confirm your account");
-        div.appendChild(message);
+      store.fetchUsers(store.user);
 
-        document.getElementsByClassName('submit-click')[0].appendChild(div);
-        document.getElementById('container-form').style.border = "2px solid green";
-        document.getElementById('submit').style.backgroundColor = "#45a049";
-        document.getElementById('submit').disabled = true;
+      console.log(store.getUsers())
 
-        setTimeout(function(){
-            document.getElementsByClassName("success-message")[0].remove();
-            document.getElementById('container-form').style.border = "";
-            document.getElementById('submit').style.backgroundColor = "#247255";
-            document.getElementById('submit').disabled = false;
-        }, 3000)
-      
-        return false;
+      let div = document.createElement('div');
+      div.innerHTML = "&#10003;&nbsp;&nbsp;";
+      div.classList.add('success-message');
+      let message = document.createTextNode("Great! We have sent you an e-mail to confirm your account");
+      div.appendChild(message);
+
+      document.getElementsByClassName('submit-click')[0].appendChild(div);
+      document.getElementById('container-form').style.border = "2px solid green";
+      document.getElementById('submit').style.backgroundColor = "#45a049";
+      document.getElementById('submit').disabled = true;
+
+      setTimeout(function(){
+        document.getElementsByClassName("success-message")[0].remove();
+        document.getElementById('container-form').style.border = "";
+        document.getElementById('submit').style.backgroundColor = "#247255";
+        document.getElementById('submit').disabled = false;
+      }, 3000)
     }
+    catch(err){
+      alert(err)
+      switch(err){
+        case "emailError":
+          showError("lmail", "You must enter a valid email");
+          break;
+        case "firstNameError":
+          showError("fname", "This field is required")
+          break;
+        case "lastNameError":
+          showError("lname", "This field is required")
+          break;
+      }
+    }
+
+    
+  })
 
 let menuClick = 0;
 let openMenu = function (){  //Despliega el menu
@@ -78,7 +108,7 @@ let myScrollFunc = function() {
   let y = window.scrollY;
   let x = window.innerWidth;
 
-  if (y >= 500 && x >= 1280) {
+  if (y >= 270 && x >= 1280) {
     asideMenu.className = "aside-menu show"
   } else {
     asideMenu.className = "aside-menu"
@@ -88,7 +118,6 @@ let myScrollFunc = function() {
 window.addEventListener("scroll", myScrollFunc);
 
 // Consuling an API for information
-
 
 (() => {
   async function getData(){
@@ -113,7 +142,7 @@ window.addEventListener("scroll", myScrollFunc);
     }catch(err){
         console.log(err)
     }finally{
-        console.log("debería mostrarse..")
+        //console.log("debería mostrarse..")
     }
   }
   getData();

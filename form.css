@@ -45,7 +45,9 @@ input[type=text], select, textarea {
 .submit-click{
   display: flex;
 }
-
+.error{
+  border: 2px solid red;
+}
 @media (max-width: 600px){
   .success-message{
     font-size: 1em;
