@@ -24,10 +24,7 @@ function showError(source, message){
   input.focus();
 }
 
-let submitButton = document.getElementById("submit")
-  .addEventListener("click", function(e){
-    e.preventDefault();
-
+function submitClick(){
     const email = document.getElementById('lmail').value;
     const name = document.getElementById('fname').value;
     const last = document.getElementById('lname').value;
@@ -82,9 +79,7 @@ let submitButton = document.getElementById("submit")
           break;
       }
     }
-
-    
-  })
+  }
 
 let menuClick = 0;
 let openMenu = function (){  //Despliega el menu
