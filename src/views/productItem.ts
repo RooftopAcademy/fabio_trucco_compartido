@@ -1,4 +1,4 @@
-function productItem(product){
+function productItem(product: Product): string{
     return `
     <article class="shop-item" id="shop-item ${product.getId()}">
         <span class="shop-item-name">${product.getName()}</span>

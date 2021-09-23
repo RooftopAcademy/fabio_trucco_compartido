@@ -1,26 +1,33 @@
 class Store{
+    private _user: User
+    private _products: Product[]
+    private _catalog: Catalog
+    private _cart: Cart
+    private _usersList: User[]
+    private _comments: UserComment[]
+
     constructor(){
-        this.user = new User;  //Si está registrado o no?? Log in
-        this.product = new Product;
-        this.catalog = new Catalog;
-        this.cart = new Cart;
-        this.usersList = [];
-        this.comments = [];
+        this._user = new User;  //Si está registrado o no?? Log in
+        this._products = [];
+        this._catalog = new Catalog;
+        this._cart = new Cart;
+        this._usersList = [];
+        this._comments = [];
     }
 
     getUser(){
-        return this.user;
+        return this._user;
     }
 
     getCart(){
-        return this.cart;
+        return this._cart;
     }
 
     getCatalog(){
-        return this.catalog;
+        return this._catalog;
     }
 
-    fetchProducts(){
+    fetchProducts(): void{
 
         let data = [
             {id:1, name: "Classic Wood Set", maker: "Juan Gabriel", 
@@ -42,7 +49,7 @@ class Store{
         ]
            
         data.forEach((item) => {
-            this.catalog.add(ProductFactory.create(item))
+            this._catalog.add(ProductFactory.create(item))
         })
     }
 
@@ -51,27 +58,27 @@ class Store{
     }
     
     fetchUsers(){
-        this.usersList.push(this.user);
+        this._usersList.push(this._user);
     }
 
     getUsers() {
-        return this.usersList;
+        return this._usersList;
     }
 
     getComments(){
-        return this.comments;
+        return this._comments;
     }
 
-    addComment(c){
-        this.comments.push(c);
+    addComment(c: UserComment){
+        this._comments.push(c);
     }
 
     loadUsersList(){
         // Load the users list by fetching an api and getting all users
     }
 
-    getNextId(){
-        return this.usersList.length + 1;
+    getNextId(): number{
+        return this._usersList.length + 1;
     }
 
 }

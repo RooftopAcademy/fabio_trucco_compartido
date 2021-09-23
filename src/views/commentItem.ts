@@ -1,4 +1,4 @@
-function commentItem(comment){
+function commentItem(comment: UserComment){
     let listItem = `
     <li >
         <h3>Review by ${comment.getUserName()}:</h3> 

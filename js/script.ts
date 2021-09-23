@@ -9,14 +9,14 @@ let catalog = store.getCatalog();
 renderListProducts(); 
 
 
-function renderListProducts(){
+function renderListProducts(): void{
     Array.from(document.getElementsByClassName('shop-items'))
     .forEach((list) => {
-            list.innerHTML = productsList(catalog.all())
+            list.innerHTML += productsList(catalog.all())
         })
 }
 
-function showError(source, message){
+function showError(source: string, message: string): void{
   alert(message)
   let input = document.getElementById(source);
   input.style.border = "2px solid red"
@@ -24,13 +24,13 @@ function showError(source, message){
   input.focus();
 }
 
-function submitClick(){
-    const email = document.getElementById('lmail').value;
-    const name = document.getElementById('fname').value;
-    const last = document.getElementById('lname').value;
-    const country = document.getElementById('country').value;
-    const subject = document.getElementById('subject').value;
-    const checkMail = document.querySelector('.checkmail').checked;
+function submitClick(): void{
+    const email = (document.querySelector('lmail') as HTMLInputElement).value;
+    const name = (document.getElementById('fname')as HTMLInputElement).value;
+    const last = (document.getElementById('lname')as HTMLInputElement).value;
+    const country = (document.getElementById('country')as HTMLInputElement).value;
+    const subject = (document.getElementById('subject')as HTMLInputElement).value;
+    const checkMail = (document.getElementById('checkmail')as HTMLInputElement).checked;
 
     let user = store.getUser();
     //debugger;
@@ -43,26 +43,26 @@ function submitClick(){
       user.setSubject(subject);
       user.setChecked(checkMail);
 
-      store.fetchUsers(store.user);
+      store.fetchUsers();
 
       console.log(store.getUsers())
 
-      let div = document.createElement('div');
+      let div: HTMLElement = document.createElement('div');
       div.innerHTML = "&#10003;&nbsp;&nbsp;";
       div.classList.add('success-message');
-      let message = document.createTextNode("Great! We have sent you an e-mail to confirm your account");
+      let message: Node = document.createTextNode("Great! We have sent you an e-mail to confirm your account");
       div.appendChild(message);
 
       document.getElementsByClassName('submit-click')[0].appendChild(div);
       document.getElementById('container-form').style.border = "2px solid green";
       document.getElementById('submit').style.backgroundColor = "#45a049";
-      document.getElementById('submit').disabled = true;
+      (document.getElementById('submit') as HTMLInputElement).disabled = true;
 
       setTimeout(function(){
         document.getElementsByClassName("success-message")[0].remove();
         document.getElementById('container-form').style.border = "";
         document.getElementById('submit').style.backgroundColor = "#247255";
-        document.getElementById('submit').disabled = false;
+        (document.getElementById('submit') as HTMLInputElement).disabled = false;
       }, 3000)
     }
     catch(err){
@@ -81,15 +81,15 @@ function submitClick(){
     }
   }
 
-let menuClick = 0;
-let openMenu = function (){  //Despliega el menu
+let menuClick: number = 0;
+let openMenu = function (): void{  //Despliega el menu
     const navMenu = document.getElementsByClassName("nav-menu")[0];
     menuClick += 1;
     if (menuClick == 1){
-    navMenu.style.display = "inline-block";
+    (navMenu as HTMLElement).style.display = "inline-block";
     }
     else{
-    navMenu.style.display = "none";
+    (navMenu as HTMLElement).style.display = "none";
     menuClick = 0;
     }
 }
@@ -97,9 +97,9 @@ let openMenu = function (){  //Despliega el menu
 
 // Show / Hide aside-menu event
 
-asideMenu = document.getElementById("aside-menu");
+let asideMenu: HTMLElement = document.getElementById("aside-menu");
 
-let myScrollFunc = function() {
+let myScrollFunc = function(): void {
   let y = window.scrollY;
   let x = window.innerWidth;
 
@@ -118,13 +118,13 @@ window.addEventListener("scroll", myScrollFunc);
   async function getData(){
     try{
       let res = await fetch('https://jsonplaceholder.typicode.com/comments'),
-      json = await res.json();
+      json: object[] = await res.json();
 
       if (!res.ok){ throw new Error("algo saió mal")}
       //console.log(json)
 
       // Storing useful comments on store.comments
-      json.forEach((comment) => {
+      json.forEach((comment: object) => {
         if ( comment["postId"] >= 1 || comment["postId"] <= 8 ) {
           let newComment = CommentFactory.create(comment);
           store.addComment(newComment);
@@ -143,8 +143,8 @@ window.addEventListener("scroll", myScrollFunc);
   getData();
 })()
 
-let commentsClick = 0;
-let openComments = function (id){  // Displays user's reviews
+let commentsClick: number = 0;
+let openComments = function (id: string): void{  // Displays user's reviews
   const commentsList = document.getElementById(`comments-list ${id.slice(-1)}`);  
   // Use the id of the button to modify the comments list
   commentsClick += 1;
