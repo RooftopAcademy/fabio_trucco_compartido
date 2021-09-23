@@ -32,7 +32,7 @@ class UserComment{
 }
 
 class CommentFactory{
-    static create(obj){
+    static create(obj: object){
         let comment = new UserComment;
 
         comment.setTarget(obj["postId"])

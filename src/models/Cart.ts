@@ -1,4 +1,6 @@
-class Cart{
+import Product from "./Product";
+
+export default class Cart{
 
     private _products: Product[]
 
@@ -13,3 +15,5 @@ class Cart{
          return this._products.push(p)
      }
 }
+
+export { Cart };

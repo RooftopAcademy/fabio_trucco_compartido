@@ -1,3 +1,9 @@
+import Product from './Product'
+import Cart from './Cart'
+import Catalog from './Catalog'
+import { User } from './User'
+import ProductFactory from '../factories/ProductFactory'
+
 class Store{
     private _user: User
     private _products: Product[]
@@ -80,6 +86,6 @@ class Store{
     getNextId(): number{
         return this._usersList.length + 1;
     }
-
 }
 
+export { Store };

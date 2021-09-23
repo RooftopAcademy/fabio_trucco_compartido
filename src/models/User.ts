@@ -1,4 +1,4 @@
-class User{
+export default class User{
 
     protected _id: number
     protected _email: string
@@ -79,3 +79,5 @@ class User{
         return this._checked = value;
     }
 }
+
+export  { User };

@@ -1,3 +1,7 @@
+import { Store } from "../src/models/Store";
+import productsList from "../src/views/productsList";
+import commentsList from "../src/views/commentsList";
+
 // DOM events 
 
 const store = new Store;

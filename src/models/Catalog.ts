@@ -1,5 +1,6 @@
+import Product from "./Product";
 
-class Catalog{
+export default class Catalog{
 
     private _products: Product[]
 
@@ -20,3 +21,4 @@ class Catalog{
         })
     }
 }
+

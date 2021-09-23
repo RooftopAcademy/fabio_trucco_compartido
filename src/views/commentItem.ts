@@ -8,3 +8,5 @@ function commentItem(comment: UserComment){
     `
     document.getElementById(`comments-list ${comment.getTarget()}`).innerHTML = listItem;
 }
+
+export { commentItem };

@@ -1,4 +1,4 @@
-class Product{
+export default class Product{
     protected id: number
     protected name: string
     protected maker: string
@@ -53,3 +53,4 @@ class Product{
         return this.price = value;
     }
 }
+

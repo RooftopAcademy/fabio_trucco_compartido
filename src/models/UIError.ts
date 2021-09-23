@@ -1,4 +1,4 @@
-class UIError{
+export default class UIError{
 
     private _code: number    
     private _source: string
