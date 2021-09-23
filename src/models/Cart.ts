@@ -6,10 +6,10 @@ class Cart{
         this._products = [];
     }
 
-     getProducts(): Product[]{
+    getProducts(): Product[]{
         return this._products
      } 
-     addProduct(p: Product): number{
+    addProduct(p: Product): number{
          return this._products.push(p)
      }
 }

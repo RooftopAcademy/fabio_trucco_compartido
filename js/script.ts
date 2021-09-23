@@ -18,10 +18,14 @@ function renderListProducts(): void{
 
 function showError(source: string, message: string): void{
   alert(message)
-  let input = document.getElementById(source);
-  input.style.border = "2px solid red"
-  document.getElementById("container-form").style.border = "2px solid red"
-  input.focus();
+  let input: HTMLElement | null = document.getElementById(source);
+  if(input){ 
+    input.style.border = "2px solid red"
+    input.focus();
+  }
+  let container = document.getElementById("container-form")
+  if ( container ){ container.style.border = "2px solid red" }
+  
 }
 
 function submitClick(): void{
@@ -54,14 +58,21 @@ function submitClick(): void{
       div.appendChild(message);
 
       document.getElementsByClassName('submit-click')[0].appendChild(div);
-      document.getElementById('container-form').style.border = "2px solid green";
-      document.getElementById('submit').style.backgroundColor = "#45a049";
+
+      let container = document.getElementById('container-form')
+      let submit = document.getElementById('submit');
+      if ( container ){ container.style.border = "2px solid green"}
+      if ( submit ) { submit.style.backgroundColor = "#45a049";}
       (document.getElementById('submit') as HTMLInputElement).disabled = true;
 
       setTimeout(function(){
         document.getElementsByClassName("success-message")[0].remove();
-        document.getElementById('container-form').style.border = "";
-        document.getElementById('submit').style.backgroundColor = "#247255";
+        if (container) { 
+          container.style.border = "" 
+        }
+        if ( submit ){
+          submit.style.backgroundColor = "#247255";
+        }
         (document.getElementById('submit') as HTMLInputElement).disabled = false;
       }, 3000)
     }
@@ -97,16 +108,18 @@ let openMenu = function (): void{  //Despliega el menu
 
 // Show / Hide aside-menu event
 
-let asideMenu: HTMLElement = document.getElementById("aside-menu");
+let asideMenu = document.getElementById("aside-menu");
 
 let myScrollFunc = function(): void {
   let y = window.scrollY;
   let x = window.innerWidth;
 
-  if (y >= 270 && x >= 1280) {
-    asideMenu.className = "aside-menu show"
+  if (y >= 270 && x >= 1280 && asideMenu) {
+    asideMenu.className = "aside-menu show";
   } else {
-    asideMenu.className = "aside-menu"
+    if (asideMenu) {
+      asideMenu.className = "aside-menu";
+    }
   }
 };
 
@@ -115,7 +128,7 @@ window.addEventListener("scroll", myScrollFunc);
 // Consuling an API for information
 
 (() => {
-  async function getData(){
+  async function getData() {
     try{
       let res = await fetch('https://jsonplaceholder.typicode.com/comments'),
       json: object[] = await res.json();
@@ -124,8 +137,8 @@ window.addEventListener("scroll", myScrollFunc);
       //console.log(json)
 
       // Storing useful comments on store.comments
-      json.forEach((comment: object) => {
-        if ( comment["postId"] >= 1 || comment["postId"] <= 8 ) {
+      json.forEach((comment: {"postId"?: number}) => {
+        if (comment["postId"] && (comment["postId"] >= 1 || comment["postId"] <= 8) ) {
           let newComment = CommentFactory.create(comment);
           store.addComment(newComment);
         } 
@@ -148,11 +161,14 @@ let openComments = function (id: string): void{  // Displays user's reviews
   const commentsList = document.getElementById(`comments-list ${id.slice(-1)}`);  
   // Use the id of the button to modify the comments list
   commentsClick += 1;
-  if (commentsClick == 1){
-  commentsList.style.display = "block";
-  }
-  else{
-  commentsList.style.display = "none";
-  commentsClick = 0;
+  if (commentsList){
+    if (commentsClick == 1){
+      commentsList.style.display = "block";
+      }
+      else{
+    
+      commentsList.style.display = "none";
+      commentsClick = 0;
+    }
   }
 }
