@@ -36,7 +36,7 @@ html, body{
     justify-content: space-between;
     background-blend-mode: multiply;
     background-color: rgb(0, 0, 0, 0.1);
-    background-image: url(images/chess-set.png);
+    background-image: url(.../images/chess-set.png);
     background-size: cover;
 }
 .main-header-links ul{
@@ -240,7 +240,7 @@ html, body{
     padding: 0 5%;
 }
 .all{
-    background-image: url("images/chess-background.png") ;
+    background-image: url(../../images/chess-background.png) ;
     opacity: 1;
     filter: brightness(90%);
 }
@@ -312,6 +312,7 @@ html, body{
 }
 .main-content{
     display:flex;
+    background-color: black;
 }
 .aside-menu{
     top: 150px;
@@ -321,6 +322,7 @@ html, body{
     background-color: gold;
     opacity: 0.93;
     display: none;
+    border-radius: 5px;
 }
 .show{
     display: block;
