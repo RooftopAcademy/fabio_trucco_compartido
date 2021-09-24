@@ -1,4 +1,6 @@
-function commentItem(comment: UserComment){
+import UserComment from '../models/UserComment'
+
+export default function commentItem(comment: UserComment){
     let listItem = `
     <li >
         <h3>Review by ${comment.getUserName()}:</h3> 
@@ -9,4 +11,3 @@ function commentItem(comment: UserComment){
     document.getElementById(`comments-list ${comment.getTarget()}`).innerHTML = listItem;
 }
 
-export { commentItem };

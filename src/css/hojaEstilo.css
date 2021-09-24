@@ -36,7 +36,7 @@ html, body{
     justify-content: space-between;
     background-blend-mode: multiply;
     background-color: rgb(0, 0, 0, 0.1);
-    background-image: url(.../images/chess-set.png);
+    background-image: url(../../images/chess-set.png);
     background-size: cover;
 }
 .main-header-links ul{
