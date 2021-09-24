@@ -1,10 +1,11 @@
 import Product from './Product'
 import Cart from './Cart'
 import Catalog from './Catalog'
-import { User } from './User'
+import User from './User'
 import ProductFactory from '../factories/ProductFactory'
+import UserComment from './UserComment'
 
-class Store{
+export default class Store{
     private _user: User
     private _products: Product[]
     private _catalog: Catalog
@@ -88,4 +89,4 @@ class Store{
     }
 }
 
-export { Store };
+

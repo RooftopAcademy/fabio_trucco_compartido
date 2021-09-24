@@ -16,7 +16,7 @@ export default function productItem(product: Product): string{
                 <li>Material: ${product.getMaterial()}</li>
                 <li>Theme: ${product.getTheme()}</li>
                 <br>
-                <button class="comments-button" type="button" id="comments-button ${product.getId()}" onclick="openComments(this.id)">User's Reviews</button>
+                <button class="comments-button" type="button" id="${product.getId()}">User's Reviews</button>
             </ul>
         </div> 
         <div class="comments-div" id="comments-div">
