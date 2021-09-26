@@ -1,3 +1,5 @@
+import UserComment from "./UserComment"
+
 export default class Product{
     protected id: number
     protected name: string
@@ -5,6 +7,9 @@ export default class Product{
     protected material: string
     protected theme: string
     protected price: number
+    protected description: string
+    protected image: string
+    protected buys: number
 
     constructor(){
         this.id = null;
@@ -13,6 +18,9 @@ export default class Product{
         this.material = '';
         this.theme = '';  //Temática: clásica, españoles contra incas, guerreros, geométrico etc.
         this.price = null;
+        this.description = "";
+        this.image = ""
+        this.buys = null;
     }
     getId(){
         return this.id;
@@ -30,6 +38,7 @@ export default class Product{
     getMaker(){
         return this.maker;
     }
+
     setMaker(value: string){
         return this.maker = value;
     }
@@ -37,20 +46,48 @@ export default class Product{
     getMaterial(){
         return this.material;
     }
+
     setMaterial(value: string){
         return this.material = value;
     }
+
     getTheme(){
         return this.theme;
     }
+
     setTheme(value: string){
         return this.theme = value;
     }
+
     getPrice(){
         return this.price;
     }
+
     setPrice(value: number){
         return this.price = value;
+    }
+
+    getDescription(){
+        return this.description;
+    }
+
+    setDescription(value:string){
+        return this.description = value
+    }
+    getImage(){
+        return this.image;
+    }
+    setImage(value: string){
+        return this.image = value;
+    }
+    getBuys(){
+        return this.buys;
+    }
+    setBuys(value: number){
+        return this.buys = value;
+    }
+    public newBuy() {
+        return this.buys++;
     }
 }
 

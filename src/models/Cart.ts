@@ -13,6 +13,10 @@ export default class Cart{
      } 
     addProduct(p: Product): number{
          return this._products.push(p)
-     }
+    }
+
+    public getCartAmount(){
+        return this._products.length;
+    }
 }
 

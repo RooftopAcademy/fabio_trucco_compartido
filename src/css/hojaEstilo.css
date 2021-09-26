@@ -28,6 +28,10 @@ html, body{
     border-radius: 3%;
     background-color: rgb(243, 177, 177);
 }
+.cart-link{
+    margin-left: 15px;
+    display: flex;
+}
 
 .main-header{
     flex-wrap: wrap;
@@ -48,6 +52,19 @@ html, body{
     list-style: none;
     padding: 10px;
 }
+.shopping-cart{
+    width: 25px;
+    height: 25px;
+}
+.mh{
+    -webkit-filter: invert(100%);
+}
+.cart-number{
+    width: 9px;
+    height: 9px;
+    font-size: 0.5em;
+}
+
 .main-header-links a{
     font-size: 1.5em;
     text-decoration: none;
@@ -173,6 +190,9 @@ html, body{
     overflow: auto;
     background-color: rgba(255, 255, 255, 0.85);;
 }
+.details{
+    display: flex;
+}
 .content-menu{
     display: flex;
     flex-wrap: wrap;
@@ -278,8 +298,12 @@ html, body{
 }
 .shop-item-image{
     height: 200px;
-    
 }
+.shop-item-image:hover{
+    -webkit-filter: blur(3px); /* Chrome, Safari, Opera */
+    filter: blur(3px);
+}
+
 .shop-item-detail{
     display: inline-block;
     align-items: center;
@@ -318,7 +342,7 @@ html, body{
     top: 150px;
     position:sticky;
     width: 150px;
-    height: 250px;
+    height: 320px;
     background-color: gold;
     opacity: 0.93;
     display: none;
@@ -336,6 +360,14 @@ html, body{
 }
 .comments-list{
     display: none;
+}
+.back-to-top{
+    width: 100%;
+    font-size: 1.5em;
+    background-color: #818181;
+}
+.back-to-top:hover{
+    background-color: #a5a2a2;
 }
 
 @media all and (max-width: 860px){

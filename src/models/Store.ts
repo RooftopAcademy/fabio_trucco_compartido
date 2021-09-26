@@ -38,21 +38,29 @@ export default class Store{
 
         let data = [
             {id:1, name: "Classic Wood Set", maker: "Juan Gabriel", 
-            material: "pine", theme : "classic", price: 1234.45},
+            material: "pine", theme : "classic", price: 1234.45, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            image: "/images/chess-set.png", buys: 12},
             {id:2, name: "Artisan Set", maker: "Ortega Hernán", 
-            material: "Caoba", theme : "classic", price: 43289},
+            material: "Caoba", theme : "classic", price: 43289, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            image: "/images/chess-set.png", buys: 12},
             {id:3, name: "Azteca set", maker: "Quiroga Juan", 
-            material: "mayan stone", theme : "Colonial", price: 2800.67},
+            material: "mayan stone", theme : "Colonial", price: 2800.67, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            image: "/images/chess-set.png", buys: 12},
             {id:4, name: "Iron metal", maker: "Piotr Zwark", 
-            material: "iron", theme : "metal", price: 12000},
+            material: "iron", theme : "metal", price: 12000, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            image: "/images/chess-set.png", buys: 12},
             {id:5, name: "Standard Staunton", maker: "Staunton", 
-            material: "plastic", theme : "classic", price: 1500},
+            material: "plastic", theme : "classic", price: 1500, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            image: "/images/chess-set.png", buys: 12},
             {id:6, name: "Standard", maker: "Royal", 
-            material: "plastic", theme : "classic", price: 999.99},
+            material: "plastic", theme : "classic", price: 999.99, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            image: "/images/chess-set.png", buys: 12},
             {id:7, name: "Classic Wood Set", maker: "Fancy Chop", 
-            material: "pine", theme : "classic", price: 2500.0},
+            material: "pine", theme : "classic", price: 2500.0, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            image: "/images/chess-set.png", buys: 12},
             {id:8, name: "Caña Set", maker: "Capablanca", 
-            material: "caña", theme : "cuban-style", price: 13900}
+            material: "caña", theme : "cuban-style", price: 13900, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            image: "/images/chess-set.png", buys: 12}
         ]
            
         data.forEach((item) => {

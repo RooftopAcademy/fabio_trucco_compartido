@@ -7,7 +7,10 @@ export default class ProductFactory{
         maker: string, 
         material: string, 
         theme: string, 
-        price: number}): Product {
+        price: number,
+        description: string,
+        image: string,
+        buys: number}): Product {
 
         let product = new Product;
 
@@ -17,6 +20,9 @@ export default class ProductFactory{
         product.setMaterial(obj['material'])
         product.setTheme(obj['theme'])
         product.setPrice(obj['price'])
+        product.setDescription(obj['description'])
+        product.setImage(obj['image'])
+        product.setBuys(obj['buys'])
 
         return product;
     }
