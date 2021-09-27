@@ -130,7 +130,7 @@ let myScrollFunc = function(): void {
   let y = window.scrollY;
   let x = window.innerWidth;
 
-  if (y >= 270 && x >= 1280 && asideMenu) {
+  if (y >= 80 && x >= 1280 && asideMenu) {
     asideMenu.className = "aside-menu show";
   } else {
     if (asideMenu) {

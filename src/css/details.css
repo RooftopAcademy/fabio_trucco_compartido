@@ -1,10 +1,10 @@
-.content-details{
-    display:flex;
+.details{
+    background-color: white;
+    flex-wrap: wrap;
 }
 up-section{
-    display:inline-flex;
+    display:flex;
 }
-
 
 .article-image{
     float: left;
@@ -102,4 +102,17 @@ up-section{
 .buy-text{
 
     width:60%;
+}
+
+@media (max-width: 814px){
+ .buy-button{
+     font-size: 1em;
+     width:7em;
+ }
+ .right-column{
+     width:12em;
+ }
+ .mid-column{
+     margin:0;
+ }
 }

@@ -39,8 +39,8 @@ html, body{
     align-items: center;
     justify-content: space-between;
     background-blend-mode: multiply;
-    background-color: rgb(0, 0, 0, 0.1);
-    background-image: url(../../images/chess-set.png);
+    background: rgb(3,3,28);
+    background: linear-gradient(90deg, rgba(3,3,28,0.8015581232492998) 100%, rgba(3,3,28,0.3309698879551821) 100%, rgba(61,9,121,1) 100%, rgba(1,21,25,1) 100%);
     background-size: cover;
 }
 .main-header-links ul{
@@ -48,7 +48,7 @@ html, body{
     display: flex;
 }
 .main-header-links li{
-    margin-top: 0px;
+    margin-top: 0;
     list-style: none;
     padding: 10px;
 }
@@ -84,9 +84,8 @@ html, body{
     
 }
 .brand-name{
-    
     display: flex;
-    text-align: left;
+    text-align: center;
     margin:0;
     font-size: 3.8em;
     font-family:"courgette";
@@ -97,13 +96,11 @@ html, body{
     font-size:larger;
 }
 .large{
-    
+    margin-left: 20px;
     display: flex;
-    margin-top: 1.3em;
-    margin-bottom: 0.5em;
-    margin-left: 0.5em;
-    padding-bottom: 50px;
-    text-align: left;
+    margin-top: 0.2em;
+    margin-bottom: 4px;
+    text-align: center;
     font-size: 7em;
     color: gold;
 }
@@ -233,6 +230,7 @@ html, body{
     align-items:flex-end;
 }
 .footer-name{
+    float: left;
     padding-left: 0.5em;
     flex-grow: 1;
 }
@@ -260,8 +258,7 @@ html, body{
     padding: 0 5%;
 }
 .all{
-    background-image: url(../../images/chess-background.png) ;
-    opacity: 1;
+    background-image: url(../../images/chess-background.png);
     filter: brightness(90%);
 }
 .shop-item-price{
@@ -336,18 +333,22 @@ html, body{
 }
 .main-content{
     display:flex;
-    background-color: black;
+    background: hsla(180,0%,50%,0.6);
+}
+.left-column{
+    display: block;
 }
 .aside-menu{
     top: 150px;
     position:sticky;
-    width: 150px;
+    width: 170px;
     height: 320px;
     background-color: gold;
     opacity: 0.93;
     display: none;
     border-radius: 5px;
 }
+
 .show{
     display: block;
 }
@@ -356,7 +357,8 @@ html, body{
     display: block;
 }
 .aside ul li a{
-    color:black
+    color:black;
+    margin-left: 30px;
 }
 .comments-list{
     display: none;
