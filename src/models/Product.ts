@@ -7,9 +7,12 @@ export default class Product{
     protected material: string
     protected theme: string
     protected price: number
+    protected stock: number
+    protected stars: number
     protected description: string
     protected image: string
     protected buys: number
+    protected guarantee: number
 
     constructor(){
         this.id = null;
@@ -18,9 +21,12 @@ export default class Product{
         this.material = '';
         this.theme = '';  //Temática: clásica, españoles contra incas, guerreros, geométrico etc.
         this.price = null;
+        this.stock = 0;
+        this.stars = 0
         this.description = "";
         this.image = ""
         this.buys = null;
+        this.guarantee = null;
     }
     getId(){
         return this.id;
@@ -67,6 +73,22 @@ export default class Product{
         return this.price = value;
     }
 
+    getStock(){
+        return this.stock;
+    }
+
+    setStock(value: number){
+        return this.stock = value;
+    }
+
+    getStars(){
+        return this.stars;
+    }
+
+    setStars(value: number){
+        return this.stars = value;
+    }
+
     getDescription(){
         return this.description;
     }
@@ -74,18 +96,28 @@ export default class Product{
     setDescription(value:string){
         return this.description = value
     }
+
     getImage(){
         return this.image;
     }
     setImage(value: string){
         return this.image = value;
     }
+
     getBuys(){
         return this.buys;
     }
     setBuys(value: number){
         return this.buys = value;
     }
+
+    getGuarantee(){
+        return this.guarantee;
+    }
+    setGuarantee(value: number){
+        return this.guarantee = value;
+    }
+
     public newBuy() {
         return this.buys++;
     }

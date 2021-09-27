@@ -8,9 +8,12 @@ export default class ProductFactory{
         material: string, 
         theme: string, 
         price: number,
+        stock: number,
+        stars: number,
         description: string,
         image: string,
-        buys: number}): Product {
+        buys: number,
+        guarantee: number}): Product {
 
         let product = new Product;
 
@@ -20,9 +23,12 @@ export default class ProductFactory{
         product.setMaterial(obj['material'])
         product.setTheme(obj['theme'])
         product.setPrice(obj['price'])
+        product.setStock(obj['stock'])
+        product.setStars(obj['stars'])
         product.setDescription(obj['description'])
         product.setImage(obj['image'])
         product.setBuys(obj['buys'])
+        product.setGuarantee(obj['guarantee'])
 
         return product;
     }

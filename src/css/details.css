@@ -51,7 +51,7 @@ up-section{
 .mid-column{
     float: right;
     display: block;
-    margin-right: 3em;
+    margin-right: 1em;
 }
 .right-column{
     display: block;
@@ -105,14 +105,21 @@ up-section{
 }
 
 @media (max-width: 814px){
- .buy-button{
-     font-size: 1em;
-     width:7em;
- }
- .right-column{
-     width:12em;
- }
- .mid-column{
-     margin:0;
- }
+    .buy-button{
+        font-size: 1.3em;
+        width:8em;
+    }
+
+    .mid-column{
+        float: left;
+        margin-left: 20px;
+
+    }
+    .right-column{
+    margin-right: 20px;
+    width:12em;
+    }
+    .buy-text{
+        font-size: small;
+    }
 }
