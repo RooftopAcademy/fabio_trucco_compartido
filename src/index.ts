@@ -16,6 +16,14 @@ let catalog = store.getCatalog();
 
 renderListProducts(); 
 
+saveProductId();
+
+renderDetail();
+
+submit();
+
+showMenu();
+
 function renderListProducts(): void{
   let shopItems = document.getElementsByClassName('shop-items');
   if (shopItems){
@@ -24,14 +32,6 @@ function renderListProducts(): void{
     })
   }  
 }
-
-saveProductId();
-
-renderDetail();
-
-submit();
-
-showMenu();
 
 function saveProductId(): void {
   let detail: HTMLCollection = document.getElementsByClassName("shop-item-img")
@@ -201,12 +201,11 @@ window.addEventListener("scroll", myScrollFunc);
 
       // Storing useful comments on store.comments
       json.forEach((comment: commentInterface) => {
-        if (comment["postId"] && (comment["postId"] >= 1 || comment["postId"] <= 8) ) {
+        if ( comment["postId"] >= 1 && comment["postId"] <= 8) {
           let newComment = CommentFactory.create(comment);
           store.addComment(newComment);
         } 
       })
-      console.log(store.getComments())
 
       commentsList(store.getComments());
 

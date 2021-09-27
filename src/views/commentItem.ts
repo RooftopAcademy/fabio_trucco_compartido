@@ -2,12 +2,16 @@ import UserComment from '../models/UserComment'
 
 export default function commentItem(comment: UserComment){
     let listItem = `
-    <li >
-        <h3>Review by ${comment.getUserName()}:</h3> 
-        <br>
-        <p>${comment.getBody()}</p>
+    <hr>
+    <li class="review-item">
+        <h3>Username: ${comment.getUserName()}</h3>
+        <h3>Comment: ${comment.getBody()}</h3>
     </li>
     `
-    document.getElementById(`comments-list ${comment.getTarget()}`).innerHTML = listItem;
+
+    let reviews = document.getElementsByClassName(`reviews${comment.getTarget()}`)[0];
+    if ( reviews ){
+        reviews.innerHTML += listItem;
+    }
 }
 

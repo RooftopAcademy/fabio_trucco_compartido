@@ -1,7 +1,8 @@
 import UserComment from "../models/UserComment";
+import commentInterface from "../interfaces";
 
 export default class CommentFactory{
-    static create(obj: {postId: number, body: string, name: string}){
+    static create(obj: commentInterface){
         let comment = new UserComment;
 
         comment.setTarget(obj["postId"])

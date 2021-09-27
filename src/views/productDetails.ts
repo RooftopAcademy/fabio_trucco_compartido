@@ -10,7 +10,7 @@ export default function productDetails(product: Product){
         `<img src='/images/star.png' class='rating-star '>`
     ];
     let active: string = `<img src='/images/star.png' class='rating-star active'>`
-    
+
     for (let i=0; i< product.getStars(); i++){
         stars[i] = active;
     }
@@ -63,14 +63,8 @@ export default function productDetails(product: Product){
         </p>
         <br>
         <h1 class="user-reviews">User reviews: </h1>
-        <ul class="reviews">
-            <hr>
-            <li class="review-item">
-                <h3>Username: whatever</h3>
-                <h3>Comment: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i</h3>
-            </li>
-            <hr>
-            
+        <ul class="reviews${product.getId()}">
+
         </ul>
     </div>
     `
