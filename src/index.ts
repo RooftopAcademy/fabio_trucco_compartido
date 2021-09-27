@@ -1,7 +1,8 @@
 import Store from "./models/Store";
 import productsList from "./views/productsList";
 import commentsList from "./views/commentsList";
-import CommentFactory from './factories/CommentFactory'
+import CommentFactory from './factories/CommentFactory';
+import commentInterface from './interfaces'
 
 // DOM events 
 
@@ -153,7 +154,7 @@ window.addEventListener("scroll", myScrollFunc);
       //console.log(json)
 
       // Storing useful comments on store.comments
-      json.forEach((comment: {postId: number, body: string, name: string}) => {
+      json.forEach((comment: commentInterface) => {
         if (comment["postId"] && (comment["postId"] >= 1 || comment["postId"] <= 8) ) {
           let newComment = CommentFactory.create(comment);
           store.addComment(newComment);
