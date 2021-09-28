@@ -10,9 +10,9 @@ import commentInterface from './interfaces';
 
 const store = new Store;
 
-store.fetchProducts();
-
 let catalog = store.getCatalog();
+
+store.fetchProducts();
 
 renderListProducts(); 
 
@@ -20,9 +20,15 @@ saveProductId();
 
 renderDetail();
 
-submit();
+submitUser();
 
-showMenu();
+displayHamburguerMenu();
+
+showAsideMenu();
+
+renderUserCommentsOnDetail();
+
+backToTop();
 
 function renderListProducts(): void{
   let shopItems = document.getElementsByClassName('shop-items');
@@ -76,7 +82,8 @@ function showError(source: string, message: string): void{
   
 }
 
-function submit(): void{
+
+function submitUser(): void{
   let submitButton = document.getElementById("submit")
   if (submitButton){
     submitButton.addEventListener("click", function(e): void{
@@ -150,7 +157,7 @@ function submit(): void{
   }
 }
 
-function showMenu(): void{
+function displayHamburguerMenu(): void{
   let menuClick: number = 0;
   document.getElementById("hamburguer")
     .addEventListener("click", function (e): void { 
@@ -171,9 +178,12 @@ function showMenu(): void{
 
 // Show / Hide aside-menu event
 
-let asideMenu = document.getElementById("aside-menu");
 
-let myScrollFunc = function(): void {
+
+function myScrollFunc(): void {
+
+  let asideMenu = document.getElementById("aside-menu");
+
   let y = window.scrollY;
   let x = window.innerWidth;
 
@@ -186,7 +196,10 @@ let myScrollFunc = function(): void {
   }
 };
 
-window.addEventListener("scroll", myScrollFunc);
+function showAsideMenu(): void {
+  window.addEventListener("scroll", myScrollFunc);
+}
+
 
 // Consuling an API for information
 
@@ -218,31 +231,42 @@ window.addEventListener("scroll", myScrollFunc);
   getData();
 })()
 
-let commentsClick: number = 0;
-let commentsButton = document.getElementsByClassName("comments-button")
-if (commentsButton){
-  Array.from(commentsButton).forEach(button => {
-    button.addEventListener("click", function(): void{
-      // Use the id of the button to modify the comments list
-      let buttonId: string = this.id
-      const commentsList = document.getElementById(`comments-list ${buttonId}`)
-      commentsClick += 1;
-      if (commentsList){
-        if (commentsClick == 1){
-          commentsList.style.display = "block";
+function renderUserCommentsOnDetail(): void {
+
+  let commentsClick: number = 0;
+
+  let commentsButton = document.getElementsByClassName("comments-button")
+
+  if (commentsButton){
+    Array.from(commentsButton).forEach(button => {
+      button.addEventListener("click", function(): void{
+
+        let buttonId: string = this.id
+        const commentsList = document.getElementById(`comments-list ${buttonId}`)
+        commentsClick += 1;
+
+        if (commentsList){
+
+          if (commentsClick == 1){
+            commentsList.style.display = "block";
+            }
+
+          else{
+            commentsList.style.display = "none";
+            commentsClick = 0;
           }
-        else{
-          commentsList.style.display = "none";
-          commentsClick = 0;
         }
-      }
+      })
     })
-  })
+  }
 }
 
-document.getElementById("back-to-top")!
+function backToTop(): void {
+  document.getElementById("back-to-top")!
   .addEventListener("click", function (): void {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
-})
+  })
+}
+
 
