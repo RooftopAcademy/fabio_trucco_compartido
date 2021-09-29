@@ -1,5 +1,3 @@
-import UserComment from "./UserComment"
-
 export default class Product{
     protected id: number
     protected name: string
@@ -14,20 +12,6 @@ export default class Product{
     protected buys: number
     protected guarantee: number
 
-    constructor(){
-        this.id = null;
-        this.name = "";  //Título del juego
-        this.maker = "";  // Fabricante o marca
-        this.material = '';
-        this.theme = '';  //Temática: clásica, españoles contra incas, guerreros, geométrico etc.
-        this.price = null;
-        this.stock = 0;
-        this.stars = 0
-        this.description = "";
-        this.image = ""
-        this.buys = null;
-        this.guarantee = null;
-    }
     getId(){
         return this.id;
     }

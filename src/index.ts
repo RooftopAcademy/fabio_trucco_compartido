@@ -1,10 +1,15 @@
 import Store from "./models/Store";
-import Product from "./models/Product";
 import productsList from "./views/productsList";
 import commentsList from "./views/commentsList";
 import CommentFactory from './factories/CommentFactory';
 import productDetails from "./views/productDetails";
 import commentInterface from './interfaces';
+import displayHamburgerMenu from "./helpers/hamburger";
+import showError from './helpers/showError';
+import showAsideMenu from './helpers/showAsideMenu';
+import backToTop from './helpers/backToTop';
+import selectComments from './helpers/selectComments';
+
 
 // DOM events 
 
@@ -22,7 +27,7 @@ renderDetail();
 
 submitUser();
 
-displayHamburguerMenu();
+displayHamburgerMenu();
 
 showAsideMenu();
 
@@ -41,19 +46,18 @@ function renderListProducts(): void{
 
 function saveProductId(): void {
   let detail: HTMLCollection = document.getElementsByClassName("shop-item-img")
-  if ( detail ){
-    Array.from(detail).forEach((el) =>{
-      el.addEventListener("click", function(e){
-        
-        let productId: string = this.id.slice(-1);
-  
-        localStorage.setItem('id', productId);
-  
-        window.location.href = `details.html`;
-      })
+  Array.from(detail)?.forEach((el) =>{
+    el.addEventListener("click", function(e){
+      
+      let productId: string = this.id.slice(-1);
+
+      localStorage.setItem('id', productId);
+
+      window.location.href = `details.html`;
     })
-  }
+  })
 }
+
 
 function renderDetail(): void{
   if (window.location.href == "http://127.0.0.1:5500/details.html") {
@@ -62,24 +66,8 @@ function renderDetail(): void{
     let product = catalog.findById(productId); 
   
     let content = document.getElementsByClassName("content details")[0];
-    if ( content ){
-      content.innerHTML = productDetails(product);
-    }
+    content.innerHTML = productDetails(product);
   }
-}
-
-
-
-function showError(source: string, message: string): void{
-  alert(message)
-  let input: HTMLElement | null = document.getElementById(source);
-  if(input){ 
-    input.style.border = "2px solid red"
-    input.focus();
-  }
-  let container = document.getElementById("container-form")
-  if ( container ){ container.style.border = "2px solid red" }
-  
 }
 
 
@@ -143,13 +131,13 @@ function submitUser(): void{
         alert(err)
         switch(err){
           case "emailError":
-            showError("lmail", "You must enter a valid email");
+            showError("lmail", "container-form", "You must enter a valid email");
             break;
           case "firstNameError":
-            showError("fname", "This field is required")
+            showError("fname", "container-form", "This field is required")
             break;
           case "lastNameError":
-            showError("lname", "This field is required")
+            showError("lname", "container-form", "This field is required")
             break;
         }
       }
@@ -157,78 +145,23 @@ function submitUser(): void{
   }
 }
 
-function displayHamburguerMenu(): void{
-  let menuClick: number = 0;
-  document.getElementById("hamburguer")
-    .addEventListener("click", function (e): void { 
-      e.preventDefault
-      const navMenu = document.getElementsByClassName("nav-menu")[0];
-      menuClick += 1;
-      if (menuClick == 1){
-      (navMenu as HTMLElement).style.display = "inline-block";
-      }
-      else{
-      (navMenu as HTMLElement).style.display = "none";
-      menuClick = 0;
-      }
-  })
-}
-
-
-
-// Show / Hide aside-menu event
-
-
-
-function myScrollFunc(): void {
-
-  let asideMenu = document.getElementById("aside-menu");
-
-  let y = window.scrollY;
-  let x = window.innerWidth;
-
-  if (y >= 80 && x >= 1280 && asideMenu) {
-    asideMenu.className = "aside-menu show";
-  } else {
-    if (asideMenu) {
-      asideMenu.className = "aside-menu";
-    }
-  }
-};
-
-function showAsideMenu(): void {
-  window.addEventListener("scroll", myScrollFunc);
-}
-
-
-// Consuling an API for information
-
 (() => {
-  async function getData() {
+  async function getCommentsFromApi() {
     try{
       let res = await fetch('https://jsonplaceholder.typicode.com/comments'),
-      json: object[] = await res.json();
+      json: commentInterface[] = await res.json();
 
       if (!res.ok){ throw new Error("algo saió mal")}
-      //console.log(json)
 
-      // Storing useful comments on store.comments
-      json.forEach((comment: commentInterface) => {
-        if ( comment["postId"] >= 1 && comment["postId"] <= 8) {
-          let newComment = CommentFactory.create(comment);
-          store.addComment(newComment);
-        } 
-      })
+      selectComments(store, json);
 
       commentsList(store.getComments());
 
     }catch(err){
         console.log(err)
-    }finally{
-        //console.log("debería mostrarse..")
     }
   }
-  getData();
+  getCommentsFromApi();
 })()
 
 function renderUserCommentsOnDetail(): void {
@@ -261,12 +194,6 @@ function renderUserCommentsOnDetail(): void {
   }
 }
 
-function backToTop(): void {
-  document.getElementById("back-to-top")!
-  .addEventListener("click", function (): void {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  })
-}
+
 
 
