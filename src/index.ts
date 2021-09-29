@@ -1,7 +1,6 @@
 import Store from "./models/Store";
 import productsList from "./views/productsList";
 import commentsList from "./views/commentsList";
-import CommentFactory from './factories/CommentFactory';
 import productDetails from "./views/productDetails";
 import commentInterface from './interfaces';
 import displayHamburgerMenu from "./helpers/hamburger";
