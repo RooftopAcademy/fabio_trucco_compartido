@@ -9,9 +9,9 @@ export default function scrollDown(): void {
     let widthPixels: number = 1280;
     
     if (y >= downPixels && x >= widthPixels) {
-        asideMenu.className = "aside-menu show";
+        asideMenu.classList.add("active-inline-block");
     } 
-    else {
-        asideMenu.className = "aside-menu";
-    }
+    else{
+        asideMenu.classList.remove("active-inline-block")
+    } 
 }
