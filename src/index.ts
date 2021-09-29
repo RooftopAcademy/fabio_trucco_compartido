@@ -30,21 +30,22 @@ displayHamburgerMenu();
 
 showAsideMenu();
 
-renderUserCommentsOnDetail();
-
 backToTop();
 
-function renderListProducts(): void{
+function renderListProducts(): void {
+
   let shopItems = document.getElementsByClassName('shop-items');
-  if (shopItems){
-    Array.from(shopItems).forEach((list) => {
+
+  Array.from(shopItems).forEach((list) => {
       list.innerHTML += productsList(catalog.all())
-    })
-  }  
+    }
+  )
 }
 
 function saveProductId(): void {
-  let detail: HTMLCollection = document.getElementsByClassName("shop-item-img")
+
+  let detail: HTMLCollection = document.getElementsByClassName("shop-item-img");
+
   Array.from(detail)?.forEach((el) =>{
     el.addEventListener("click", function(e){
       
@@ -58,7 +59,8 @@ function saveProductId(): void {
 }
 
 
-function renderDetail(): void{
+function renderDetail(): void {
+
   if (window.location.href == "http://127.0.0.1:5500/details.html") {
     let productId: number = Number(localStorage.getItem('id'));
   
@@ -70,7 +72,8 @@ function renderDetail(): void{
 }
 
 
-function submitUser(): void{
+function submitUser(): void {
+
   let submitButton = document.getElementById("submit")
   if (submitButton){
     submitButton.addEventListener("click", function(e): void{
@@ -146,7 +149,7 @@ function submitUser(): void{
 
 (() => {
   async function getCommentsFromApi() {
-    try{
+    try {
       let res = await fetch('https://jsonplaceholder.typicode.com/comments'),
       json: commentInterface[] = await res.json();
 
@@ -156,42 +159,14 @@ function submitUser(): void{
 
       commentsList(store.getComments());
 
-    }catch(err){
+    }
+    catch(err) {
         console.log(err)
     }
   }
   getCommentsFromApi();
 })()
 
-function renderUserCommentsOnDetail(): void {
-
-  let commentsClick: number = 0;
-
-  let commentsButton = document.getElementsByClassName("comments-button")
-
-  if (commentsButton){
-    Array.from(commentsButton).forEach(button => {
-      button.addEventListener("click", function(): void{
-
-        let buttonId: string = this.id
-        const commentsList = document.getElementById(`comments-list ${buttonId}`)
-        commentsClick += 1;
-
-        if (commentsList){
-
-          if (commentsClick == 1){
-            commentsList.style.display = "block";
-            }
-
-          else{
-            commentsList.style.display = "none";
-            commentsClick = 0;
-          }
-        }
-      })
-    })
-  }
-}
 
 
 
