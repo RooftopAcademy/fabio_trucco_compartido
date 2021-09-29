@@ -157,7 +157,6 @@ html, body{
 }
 
 
-
 .nav-menu {
     display: none;
     margin-right: 4.6578em;
@@ -167,11 +166,6 @@ html, body{
     background-color: rgb(36, 34, 34, 0.822);
     transition: 0.5s;
 }
-
-.active{
-    display: inline-block;
-}
-
 
 .nav-item {
     margin-left: 0;
