@@ -1,5 +1,5 @@
-import Store from '../models/Store';
-import commentInterface from '../interfaces/IComment';
+import Store from '../entities/Store';
+import commentInterface from '../interfaces/CommentInterface';
 import CommentFactory from '../factories/CommentFactory';
 
 export default function saveProperComments(store: Store, comment: commentInterface): void {

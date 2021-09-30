@@ -1,6 +1,6 @@
-import User from '../models/User';
-import Store from '../models/Store';
-import IUser from '../interfaces/IUser';
+import User from '../entities/User';
+import Store from '../entities/Store';
+import IUser from '../interfaces/UserInterface';
 
 export default class UserFactory {
     

@@ -1,4 +1,4 @@
-import UserComment from '../models/UserComment'
+import UserComment from '../entities/UserComment'
 
 export default function commentItem(comment: UserComment){
     let listItem = `

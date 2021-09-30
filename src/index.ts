@@ -1,4 +1,4 @@
-import Store from "./models/Store";
+import Store from "./entities/Store";
 import UserFactory from './factories/UserFactory';
 import productsList from "./views/productsList";
 import commentsList from "./views/commentsList";
@@ -9,8 +9,8 @@ import showAsideMenu from './helpers/showAsideMenu';
 import backToTop from './helpers/backToTop';
 import selectComments from './helpers/selectComments';
 import successMessageOnUserSubmit from './helpers/successMessageOnUserSubmit';
-import IUser from './interfaces/IUser';
-import IComment from './interfaces/IComment';
+import read from './helpers/readContactFormInputs';
+import CommentInterface from './interfaces/CommentInterface';
 import runSuccessStylingOnContactForm from "./helpers/runSuccessStylingOnContactForm";
 import revertSuccessStylingOnContactForm from "./helpers/revertSuccessStylingOnContactForm";
 
@@ -76,22 +76,6 @@ function renderDetail(): void {
   }
 }
 
-const read = function readContactFormInputs (): IUser {
-
-    let element = <HTMLInputElement> document.getElementById("checkmail");
-    let isChecked: boolean = element.checked;
-
-    return {
-       email : (document.getElementById('lmail') as HTMLInputElement).value,
-       firstName : (document.getElementById('fname')as HTMLInputElement).value,
-       lastName : (document.getElementById('lname')as HTMLInputElement).value,
-       country : (document.getElementById('country')as HTMLInputElement).value,
-       subject : (document.getElementById('subject')as HTMLInputElement).value,
-       checked : isChecked
-    }
-    
-}
-
 function submitUser(): void {
 
     let submitButton: HTMLElement = document.getElementById("submit") as HTMLElement;
@@ -132,7 +116,7 @@ function submitUser(): void {
     async function getCommentsFromApi() {
       try {
         let res = await fetch('https://jsonplaceholder.typicode.com/comments'),
-        json: IComment[] = await res.json();
+        json: CommentInterface[] = await res.json();
   
         if (!res.ok){ throw new Error("algo saió mal")}
   
