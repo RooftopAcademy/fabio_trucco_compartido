@@ -58,6 +58,7 @@ html, body{
 }
 .mh{
     -webkit-filter: invert(100%);
+    filter: 100%;
 }
 .cart-number{
     width: 9px;
@@ -140,7 +141,7 @@ html, body{
 .bar{
     display:inline-block;
 }
-.hamburguer{
+.hamburger{
     position:sticky;
     display: none;
     margin-top:0.54em;
@@ -151,10 +152,9 @@ html, body{
     font-size:50px;
     cursor:pointer;
 }
-.hamburguer:hover{
+.hamburger:hover{
     background-color: rgb(0, 0, 0, 0.1);
 }
-
 
 
 .nav-menu {
@@ -165,8 +165,8 @@ html, body{
     align-items: left;
     background-color: rgb(36, 34, 34, 0.822);
     transition: 0.5s;
-    
 }
+
 .nav-item {
     margin-left: 0;
     padding:15px;
@@ -352,10 +352,6 @@ html, body{
     border-radius: 5px;
 }
 
-.show{
-    display: block;
-}
-
 .aside ul{
     display: block;
 }
@@ -377,7 +373,7 @@ html, body{
 
 
 @media all and (max-width: 860px){
-    .hamburguer{
+    .hamburger{
         display: flex;
         cursor: pointer;
     }

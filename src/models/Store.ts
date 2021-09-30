@@ -7,7 +7,6 @@ import UserComment from './UserComment'
 
 export default class Store{
     private _user: User
-    private _products: Product[]
     private _catalog: Catalog
     private _cart: Cart
     private _usersList: User[]
@@ -15,7 +14,6 @@ export default class Store{
 
     constructor(){
         this._user = new User;  //Si está registrado o no?? Log in
-        this._products = [];
         this._catalog = new Catalog;
         this._cart = new Cart;
         this._usersList = [];
