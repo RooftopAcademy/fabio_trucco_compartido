@@ -8,16 +8,6 @@ export default class User{
     protected _subject: string
     protected _checked: boolean
 
-    constructor(){
-        this._id = null;
-        this._email = '';
-        this._firstName = '';
-        this._lastName = '';
-        this._country = '';
-        this._subject = '';
-        this._checked = true;
-    }
-
     getId(){
         return this._id
     }

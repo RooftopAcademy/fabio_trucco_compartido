@@ -1,4 +1,3 @@
-import Product from './Product'
 import Cart from './Cart'
 import Catalog from './Catalog'
 import User from './User'
@@ -95,7 +94,7 @@ export default class Store{
         // Load the users list by fetching an api and getting all users
     }
 
-    getNextId(): number{
+    getNextUserId(): number{
         return this._usersList.length + 1;
     }
 }
