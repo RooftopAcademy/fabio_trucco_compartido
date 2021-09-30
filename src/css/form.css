@@ -48,6 +48,14 @@ input[type=text], select, textarea {
 .error{
   border: 2px solid red;
 }
+
+.form-success{
+  border: 2px solid green;
+}
+.on-submit{
+  background-color: #45a049;
+}
+
 @media (max-width: 600px){
   .success-message{
     font-size: 1em;

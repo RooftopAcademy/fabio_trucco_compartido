@@ -1,5 +1,5 @@
 import UserComment from "../models/UserComment";
-import commentInterface from "../interfaces";
+import commentInterface from "../interfaces/IComment";
 
 export default class CommentFactory{
     static create(obj: commentInterface){

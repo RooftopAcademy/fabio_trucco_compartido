@@ -7,5 +7,5 @@ export default function runSuccessStylingOnContactForm() {
     submitButton.classList.add('on-submit');
 
     submitButton.disabled = true;
-
+    
 }

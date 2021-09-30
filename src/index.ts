@@ -1,13 +1,18 @@
 import Store from "./models/Store";
+import UserFactory from './factories/UserFactory';
 import productsList from "./views/productsList";
 import commentsList from "./views/commentsList";
 import productDetails from "./views/productDetails";
-import commentInterface from './interfaces';
 import displayHamburgerMenu from "./helpers/hamburger";
 import showError from './helpers/showError';
 import showAsideMenu from './helpers/showAsideMenu';
 import backToTop from './helpers/backToTop';
 import selectComments from './helpers/selectComments';
+import successMessageOnUserSubmit from './helpers/successMessageOnUserSubmit';
+import IUser from './interfaces/IUser';
+import IComment from './interfaces/IComment';
+import runSuccessStylingOnContactForm from "./helpers/runSuccessStylingOnContactForm";
+import revertSuccessStylingOnContactForm from "./helpers/revertSuccessStylingOnContactForm";
 
 
 // DOM events 
@@ -71,66 +76,43 @@ function renderDetail(): void {
   }
 }
 
+const read = function readContactFormInputs (): IUser {
+
+    let element = <HTMLInputElement> document.getElementById("checkmail");
+    let isChecked: boolean = element.checked;
+
+    return {
+       email : (document.getElementById('lmail') as HTMLInputElement).value,
+       firstName : (document.getElementById('fname')as HTMLInputElement).value,
+       lastName : (document.getElementById('lname')as HTMLInputElement).value,
+       country : (document.getElementById('country')as HTMLInputElement).value,
+       subject : (document.getElementById('subject')as HTMLInputElement).value,
+       checked : isChecked
+    }
+    
+}
 
 function submitUser(): void {
 
     let submitButton: HTMLElement = document.getElementById("submit") as HTMLElement;
   
-    submitButton.addEventListener("click", function(e): void {
+    submitButton?.addEventListener("click", function(e): void {
       
         e.preventDefault();
-    
-        const email = (document.getElementById('lmail') as HTMLInputElement).value;
-        const name = (document.getElementById('fname')as HTMLInputElement).value;
-        const last = (document.getElementById('lname')as HTMLInputElement).value;
-        const country = (document.getElementById('country')as HTMLInputElement).value;
-        const subject = (document.getElementById('subject')as HTMLInputElement).value;
-        const element = <HTMLInputElement> document.getElementById("checkmail");
-        let isChecked: boolean = element.checked;
-        const checkMail = isChecked;
-    
-        let user = store.getUser();
-        //debugger;
+
         try{
-          user.setId(store.getNextId())
-          user.setEmail(email);
-          user.setFirstName(name);
-          user.setLastName(last);
-          user.setCountry(country);
-          user.setSubject(subject);
-          user.setChecked(checkMail);
-    
+
+          UserFactory.create(store, read())
+
           store.fetchUsers();
-    
-          console.log(store.getUsers())
-    
-          let div: HTMLElement = document.createElement('div');
-          div.innerHTML = "&#10003;&nbsp;&nbsp;";
-          div.classList.add('success-message');
-          let message: Node = document.createTextNode("Great! We have sent you an e-mail to confirm your account");
-          div.appendChild(message);
-    
-          document.getElementsByClassName('submit-click')[0].appendChild(div);
-    
-          let container = document.getElementById('container-form')
-          let submit = document.getElementById('submit');
-          if ( container ){ container.style.border = "2px solid green"}
-          if ( submit ) { submit.style.backgroundColor = "#45a049";}
-          (document.getElementById('submit') as HTMLInputElement).disabled = true;
-    
-          setTimeout(function(){
-            document.getElementsByClassName("success-message")[0].remove();
-            if (container) { 
-              container.style.border = "" 
-            }
-            if ( submit ){
-              submit.style.backgroundColor = "#247255";
-            }
-            (document.getElementById('submit') as HTMLInputElement).disabled = false;
-          }, 3000)
+
+          runSuccessStylingOnContactForm();
+
+          successMessageOnUserSubmit();
+
+          setTimeout( revertSuccessStylingOnContactForm, 3000 );
         }
         catch(err){
-          alert(err)
           switch(err){
             case "emailError":
               showError("lmail", "container-form", "You must enter a valid email");
@@ -150,7 +132,7 @@ function submitUser(): void {
     async function getCommentsFromApi() {
       try {
         let res = await fetch('https://jsonplaceholder.typicode.com/comments'),
-        json: commentInterface[] = await res.json();
+        json: IComment[] = await res.json();
   
         if (!res.ok){ throw new Error("algo saió mal")}
   
