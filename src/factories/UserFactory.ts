@@ -9,6 +9,7 @@ export default class UserFactory {
         let newUser = new User;
 
         newUser.setId(store.getNextUserId());
+        newUser.setEmail(userInterface.email);
         newUser.setFirstName(userInterface.firstName);
         newUser.setLastName(userInterface.lastName);
         newUser.setCountry(userInterface.country);

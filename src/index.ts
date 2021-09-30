@@ -102,32 +102,34 @@ function submitUser(): void {
               showError("lmail", "container-form", "You must enter a valid email");
               break;
             case "firstNameError":
-              showError("fname", "container-form", "This field is required")
+              showError("fname", "container-form", "The first name field is required")
               break;
             case "lastNameError":
-              showError("lname", "container-form", "This field is required")
+              showError("lname", "container-form", "The last name field is required")
               break;
           }
         }
     })
   }
   
-  (() => {
+(() => {
     async function getCommentsFromApi() {
-      try {
-        let res = await fetch('https://jsonplaceholder.typicode.com/comments'),
-        json: CommentInterface[] = await res.json();
-  
-        if (!res.ok){ throw new Error("algo saió mal")}
-  
-        selectComments(store, json);
-  
-        commentsList(store.getComments());
-  
-      }
-      catch(err) {
-          console.log(err)
-      }
+
+        try {
+          let res = await fetch('https://jsonplaceholder.typicode.com/comments'),
+          json: CommentInterface[] = await res.json();
+    
+          if (!res.ok){ throw new Error("algo saió mal")}
+    
+          selectComments(store, json);
+    
+          commentsList(store.getComments());
+    
+        }
+        catch(err) {
+            console.log(err)
+        }
+
     }
     getCommentsFromApi();
 })()
