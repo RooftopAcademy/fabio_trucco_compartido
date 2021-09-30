@@ -53,14 +53,6 @@ export default abstract class User{
         return this._country = value;
     }
 
-    getSubject(){
-        return this._subject;
-    }
-
-    setSubject (value: string) { 
-        return this._subject = value;
-    }
-
     getChecked() {
         return this._checked;
     }

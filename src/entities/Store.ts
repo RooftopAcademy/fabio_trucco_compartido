@@ -1,18 +1,19 @@
 import Cart from './Cart'
 import Catalog from './Catalog'
-import User from './User'
+import InvitedUser from './InvitedUser'
+import RegisteredUser from './RegisteredUser'
 import ProductFactory from '../factories/ProductFactory'
 import UserComment from './UserComment'
 
 export default class Store{
-    private _user: User
+    private _user: InvitedUser
     private _catalog: Catalog
     private _cart: Cart
-    private _usersList: User[]
+    private _usersList: RegisteredUser[]
     private _comments: UserComment[]
 
     constructor(){
-        this._user = new User;  //Si está registrado o no?? Log in
+        this._user = new InvitedUser;  //Si está registrado o no?? Log in
         this._catalog = new Catalog;
         this._cart = new Cart;
         this._usersList = [];
@@ -74,8 +75,9 @@ export default class Store{
         
     }
     
-    fetchUsers(){
-        this._usersList.push(this._user);
+    fetchUser(newRUser: RegisteredUser) {
+        // Include the newly registered user to the list
+        this._usersList.push(newRUser);
     }
 
     getUsers() {

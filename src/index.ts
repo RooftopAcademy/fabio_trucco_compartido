@@ -86,9 +86,9 @@ function submitUser(): void {
 
         try{
 
-          RegisteredUserFactory.create(store, read())
+          let newRUser = RegisteredUserFactory.create(store, read())
 
-          store.fetchUsers();
+          store.fetchUser(newRUser);
 
           runSuccessStylingOnContactForm();
 

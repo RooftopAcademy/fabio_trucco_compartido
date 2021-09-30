@@ -1,21 +1,25 @@
 import RegisteredUser from '../entities/RegisteredUser';
 import Store from '../entities/Store';
-import IUser from '../interfaces/UserInterface';
+import RUserInterface from '../interfaces/RUserInterface';
 
 export default class RegisteredUserFactory {
     
-    static create(store: Store, userInterface: IUser) : RegisteredUser {
+    static create(store: Store, registeredUser: RUserInterface) : RegisteredUser {
 
         let newRUser = new RegisteredUser;
 
         newRUser.setId(store.getNextUserId());
         
-        newRUser.setEmail(userInterface.email);
-        newRUser.setFirstName(userInterface.firstName);
-        newRUser.setLastName(userInterface.lastName);
-        newRUser.setCountry(userInterface.country);
-        newRUser.setSubject(userInterface.subject);
-        newRUser.setChecked(userInterface.checked)
+        newRUser.setEmail(registeredUser.email);
+        newRUser.setFirstName(registeredUser.firstName);
+        newRUser.setLastName(registeredUser.lastName);
+        newRUser.setCountry(registeredUser.country);
+        newRUser.setChecked(registeredUser.checked)
+
+        newRUser.setNickname(registeredUser.nickname)    
+        newRUser.setPhoneNumber(registeredUser.phoneNumber)
+        newRUser.setPaymentsMethods(registeredUser.paymentsMethods)
+        newRUser.setPassword(registeredUser.password)
 
         return newRUser;
     }

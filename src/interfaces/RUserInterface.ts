@@ -4,7 +4,10 @@ export default interface UserInterface{
     firstName: string,
     lastName: string,
     country: string,
-    subject?: string,
-    checked: boolean
+    checked: boolean,
+    nickname: string,
+    phoneNumber: string,
+    paymentsMethods: string[],
+    password: string
 
 }
