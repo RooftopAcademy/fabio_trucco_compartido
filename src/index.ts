@@ -1,5 +1,5 @@
 import Store from "./entities/Store";
-import UserFactory from './factories/UserFactory';
+import RegisteredUserFactory from './factories/RegisteredUserFactory';
 import productsList from "./views/productsList";
 import commentsList from "./views/commentsList";
 import productDetails from "./views/productDetails";
@@ -86,7 +86,7 @@ function submitUser(): void {
 
         try{
 
-          UserFactory.create(store, read())
+          RegisteredUserFactory.create(store, read())
 
           store.fetchUsers();
 

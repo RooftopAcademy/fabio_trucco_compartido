@@ -6,6 +6,7 @@ export default function revertSuccessStylingOnContactForm() {
     let submitButton = document.getElementById('submit') as HTMLInputElement;
 
     containerForm.classList.remove('form-success'); 
+    containerForm.classList.remove('error'); 
     submitButton.classList.remove('on-submit');
 
     submitButton.disabled = false;
