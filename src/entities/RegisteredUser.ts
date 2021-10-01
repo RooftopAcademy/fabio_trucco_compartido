@@ -4,7 +4,7 @@ export default class RegisteredUser extends User{
 
     protected _nickname: string
     protected _phoneNumber: string;
-    protected _paymentsMethods: string[];
+    protected _paymentMethods: string[];
     protected _password: string;
 
     getNickname(): string {
@@ -26,12 +26,12 @@ export default class RegisteredUser extends User{
         this._phoneNumber = value;
     }
 
-    getPaymentsMethods(): string[] {
-        return this._paymentsMethods;
+    getPaymentMethods(): string[] {
+        return this._paymentMethods;
     }
     
-    setPaymentsMethods(value: string[]): void {
-        this._paymentsMethods = value;
+    setPaymentMethods(value: string[]): void {
+        this._paymentMethods = value;
     }
 
     getPassword(): string {

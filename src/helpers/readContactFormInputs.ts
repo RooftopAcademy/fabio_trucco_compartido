@@ -1,9 +1,8 @@
+import isChecked from './isChecked'
 import RUserInterface from '../interfaces/RUserInterface';
 
-export default function readContactFormInputs (): RUserInterface {
 
-    let element = <HTMLInputElement> document.getElementById("checkmail");
-    let isChecked: boolean = element.checked;
+export default function readContactFormInputs (): RUserInterface {
 
     return {
 
@@ -11,11 +10,12 @@ export default function readContactFormInputs (): RUserInterface {
         firstName : (document.getElementById('fname')as HTMLInputElement).value,
         lastName : (document.getElementById('lname')as HTMLInputElement).value,
         country : (document.getElementById('country')as HTMLInputElement).value,
-        checked : isChecked,
-        nickname: 
-        phoneNumber: 
-        paymentsMethods: 
-        password:        
+        checked : isChecked('checkmail'),
+        nickname: (document.getElementById('nick') as HTMLInputElement).value,
+        phoneNumber: (document.getElementById('phone') as HTMLInputElement).value,
+        paymentMethods: payMeth,
+        password:     
+
     }
     
 }

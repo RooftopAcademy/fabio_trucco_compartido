@@ -7,7 +7,7 @@ export default interface UserInterface{
     checked: boolean,
     nickname: string,
     phoneNumber: string,
-    paymentsMethods: string[],
+    paymentMethods: string[],
     password: string
 
 }
