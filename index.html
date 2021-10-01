@@ -78,12 +78,14 @@
                     
                         <label for="fname">First Name</label>
                         <input type="text" id="fname" name="firstname" placeholder="Your name...">
+                        <input type="text" id="fname" name="firstname" placeholder="Your name...">
                     
                         <label for="lname">Last Name</label>
                         <input type="text" id="lname" name="lastname" placeholder="Your last name...">
                     
                         <label for="country">Country</label>
                         <select id="country" name="country">
+
                             <option value="usa">Argentina</option>
                             <option value="australia">Australia</option>
                             <option value="usa">Bolivia</option>
@@ -93,13 +95,32 @@
                             <option value="usa">Perú</option>
                             <option value="usa">Uruguay</option>
                             <option value="usa">USA</option>
+
                         </select>
-                        
+
+                        <label for="paymentsMethods">Payments methods</label>
+                        <input type="checkbox" class="check" id="credit" checked>
+                        <label for="check-label" >&nbsp;&nbsp;&nbsp;Credit card</label>
+
+                        <input type="checkbox" class="check" id="debit" checked>
+                        <label for="check-label" >&nbsp;&nbsp;&nbsp;Debit</label>
+
+                        <input type="checkbox" class="check" id="crypto" checked>
+                        <label for="check-label" >&nbsp;&nbsp;&nbsp;Crypto</label>
                     
-                        <label for="subject">Subject</label>
-                        <textarea id="subject" name="subject" placeholder="Anything you want to tell us..." ></textarea>
-                        <div class="checkbox-box">
-                        <input type="checkbox" class="checkmail" id="checkmail" checked>
+                        <label for="nick">Nickname</label>
+                        <input type="text" id="nick" name="nickname" placeholder="Choose your nick...">
+
+                        <label for="phone">Phone Number</label>
+                        <input type="text" id="phone" name="phonenNumber" placeholder="Your phone...">
+
+                        <label for="pass1">Password</label>
+                        <input type="text" id="pass1" name="password" placeholder="No less than 6 chars">
+
+                        <label for="pass2">Repeat password</label>
+                        <input type="text" id="pass2" name="password">
+                        
+                        <input type="checkbox" class="check" id="checkmail" checked>
                         <label for="check-label" >&nbsp;&nbsp;&nbsp;Send me e-mails and updated offers!</label>
                         </div>
                         <br>
