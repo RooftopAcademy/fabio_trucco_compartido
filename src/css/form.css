@@ -41,10 +41,10 @@ input[type=text], select, textarea {
   border-radius: 5px;
   flex-grow: 1;
   font-size: 1.1em;
+  text-align: center;
 }
 .submit-click{
   display: flex;
-  height: 60px;
 }
 .error{
   border: 2px solid red;

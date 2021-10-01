@@ -23,7 +23,7 @@ export default class RegisteredUser extends User{
     }
     
     setPhoneNumber(value: string): void {
-        if (value.length < 12 || typeof value != "string"){
+        if ( value.length < 12 ){
             throw "phoneNumberError"
         }
         this._phoneNumber = value;
