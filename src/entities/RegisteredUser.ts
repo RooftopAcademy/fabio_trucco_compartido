@@ -12,6 +12,9 @@ export default class RegisteredUser extends User{
     }
     
     setNickname(value: string): void {
+        if (value.length == 0){
+            throw 'nickname error'
+        }
         this._nickname = value;
     }
 
@@ -31,6 +34,9 @@ export default class RegisteredUser extends User{
     }
     
     setPaymentMethods(value: string[]): void {
+        if (value.length == 0){
+            throw 'paymentMethodsError'
+        }
         this._paymentMethods = value;
     }
 
