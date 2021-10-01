@@ -44,6 +44,7 @@ input[type=text], select, textarea {
 }
 .submit-click{
   display: flex;
+  height: 60px;
 }
 .error{
   border: 2px solid red;
@@ -54,6 +55,16 @@ input[type=text], select, textarea {
 }
 .on-submit{
   background-color: #45a049;
+}
+
+.payment-methods{
+  background-color: white;
+  border-radius: 5px;
+}
+
+.check{
+  margin: 15px;
+  margin-right: 0;
 }
 
 @media (max-width: 600px){
