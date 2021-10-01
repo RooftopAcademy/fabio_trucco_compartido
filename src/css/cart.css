@@ -1,0 +1,14 @@
+.cart-flex{
+    height: 25em;
+    display: flex;
+}
+
+.cart-item{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.cart-image{
+    width: 150px;
+    height: 120px;
+}
