@@ -84,9 +84,13 @@ function submitUser(): void {
       
         e.preventDefault();
 
+        console.log('hola')
+
         try{
 
           let newRUser = RegisteredUserFactory.create(store, read())
+
+          console.log('2')
 
           store.fetchUser(newRUser);
 
@@ -97,6 +101,7 @@ function submitUser(): void {
           setTimeout( revertSuccessStylingOnContactForm, 3000 );
         }
         catch(err){
+
           switch(err){
             case "emailError":
               showError("lmail", "container-form", "You must enter a valid email");
@@ -106,6 +111,18 @@ function submitUser(): void {
               break;
             case "lastNameError":
               showError("lname", "container-form", "The last name field is required")
+              break;
+            case "nicknameError":
+              showError("nick", "container-form", "Enter a valid nickname")
+              break;
+            case "phoneNumberError":
+              showError("phone", "container-form", "Enter a valid phone number")
+              break;
+            case "paymentMethodsError":
+              showError("credit", "container-form", "You have to choose at least one payment method")
+              break;
+            case "passwordError":
+              showError("password", "container-form", "Choose a valid password")
               break;
           }
         }
