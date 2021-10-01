@@ -18,7 +18,7 @@ export default class RegisteredUserFactory {
 
         newRUser.setNickname(registeredUser.nickname)    
         newRUser.setPhoneNumber(registeredUser.phoneNumber)
-        newRUser.setPaymentsMethods(registeredUser.paymentsMethods)
+        newRUser.setPaymentMethods(registeredUser.paymentMethods)
         newRUser.setPassword(registeredUser.password)
 
         return newRUser;

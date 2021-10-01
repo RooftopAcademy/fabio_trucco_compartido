@@ -1,3 +1,4 @@
+import multipleChecks from './multipleChecks'
 import isChecked from './isChecked'
 import RUserInterface from '../interfaces/RUserInterface';
 
@@ -13,8 +14,8 @@ export default function readContactFormInputs (): RUserInterface {
         checked : isChecked('checkmail'),
         nickname: (document.getElementById('nick') as HTMLInputElement).value,
         phoneNumber: (document.getElementById('phone') as HTMLInputElement).value,
-        paymentMethods: payMeth,
-        password:     
+        paymentMethods: multipleChecks(['credit', 'debit', 'crypto']),
+        password: (document.getElementById('password') as HTMLInputElement).value,
 
     }
     
