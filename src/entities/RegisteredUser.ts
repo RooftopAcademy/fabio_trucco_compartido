@@ -24,7 +24,7 @@ export default class RegisteredUser extends User {
     
     setPhoneNumber(value: string): void {
         if ( value.length < 12 ){
-            throw "phoneNumberError"
+            throw 'phoneNumberError'
         }
         this._phoneNumber = value;
     }
@@ -46,7 +46,7 @@ export default class RegisteredUser extends User {
     
     setPassword(value: string): void {
         if (value.length < 6){
-            throw "passwordError";
+            throw 'passwordError';
         }
         this._password = value;
     }
