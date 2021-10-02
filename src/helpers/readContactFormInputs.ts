@@ -1,4 +1,4 @@
-import multipleChecks from './multipleChecks'
+import filterMultipleChecks from './filterMultipleChecks'
 import isCheckBoxChecked from './isCheckBoxChecked'
 import RegisteredUserInterface from '../interfaces/RegisteredUserInterface';
 
@@ -14,7 +14,7 @@ export default function readContactFormInputs (): RegisteredUserInterface {
         checked : isCheckBoxChecked('checkmail'),
         nickname: (document.getElementById('nick') as HTMLInputElement).value,
         phoneNumber: (document.getElementById('phone') as HTMLInputElement).value,
-        paymentMethods: multipleChecks(['credit', 'debit', 'crypto']),
+        paymentMethods: filterMultipleChecks(['credit', 'debit', 'crypto']),
         password: (document.getElementById('password') as HTMLInputElement).value,
 
     }
