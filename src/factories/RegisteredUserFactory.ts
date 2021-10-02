@@ -1,6 +1,6 @@
 import RegisteredUser from '../entities/RegisteredUser';
 import Store from '../entities/Store';
-import RUserInterface from '../interfaces/RUserInterface';
+import RUserInterface from '../interfaces/RegisteredUserInterface';
 
 export default class RegisteredUserFactory {
     

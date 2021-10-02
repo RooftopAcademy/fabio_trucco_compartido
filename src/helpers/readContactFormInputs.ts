@@ -1,9 +1,9 @@
 import multipleChecks from './multipleChecks'
 import isChecked from './isChecked'
-import RUserInterface from '../interfaces/RUserInterface';
+import RegisteredUserInterface from '../interfaces/RegisteredUserInterface';
 
 
-export default function readContactFormInputs (): RUserInterface {
+export default function readContactFormInputs (): RegisteredUserInterface {
 
     return {
 
