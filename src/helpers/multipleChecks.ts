@@ -1,4 +1,4 @@
-import isChecked from "./isChecked";
+import isChecked from "./isCheckBoxChecked";
 
 export default function multipleChecks(ids: string[]) : string[] {
 
