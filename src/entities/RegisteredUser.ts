@@ -13,7 +13,7 @@ export default class RegisteredUser extends User {
     
     setNickname(value: string): void {
         if (value.length == 0){
-            throw 'nickname error'
+            throw new Error('nickname error')
         }
         this._nickname = value;
     }
@@ -24,7 +24,7 @@ export default class RegisteredUser extends User {
     
     setPhoneNumber(value: string): void {
         if ( value.length < 12 ){
-            throw 'phoneNumberError'
+            throw new Error('phoneNumberError')
         }
         this._phoneNumber = value;
     }
@@ -35,7 +35,7 @@ export default class RegisteredUser extends User {
     
     setPaymentMethods(value: string[]): void {
         if (value.length == 0){
-            throw 'paymentMethodsError'
+            throw new Error('paymentMethodsError')
         }
         this._paymentMethods = value;
     }
@@ -46,7 +46,7 @@ export default class RegisteredUser extends User {
     
     setPassword(value: string): void {
         if (value.length < 6){
-            throw 'passwordError';
+            throw new Error('passwordError')
         }
         this._password = value;
     }

@@ -19,8 +19,8 @@ export default abstract class User {
         return this._email;
     }
     setEmail (value: string): string { 
-        if (typeof value !== "string" || !value.includes("@")) {
-            throw "emailError";
+        if (typeof value !== 'string' || !value.includes('@')) {
+            throw new Error('emailError');
           }
         return this._email = value;
     }
@@ -30,8 +30,8 @@ export default abstract class User {
     }
 
     setFirstName(value: string): string { 
-        if (typeof value !== "string" || value.length == 0 ) {
-            throw "firstNameError";
+        if (typeof value !== 'string' || value.length == 0 ) {
+            throw new Error('firstNameError');
           }
         return this._firstName = value;
         }
@@ -39,8 +39,8 @@ export default abstract class User {
         return this._lastName;
     }
     setLastName (value: string): string { 
-        if (typeof value !== "string" || value.length == 0 ) {
-            throw "lastNameError";
+        if (typeof value !== 'string' || value.length == 0 ) {
+            throw new Error('lastNameError');
         }
         return this._lastName = value;
     }
