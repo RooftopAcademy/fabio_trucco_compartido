@@ -41,6 +41,7 @@ input[type=text], select, textarea {
   border-radius: 5px;
   flex-grow: 1;
   font-size: 1.1em;
+  text-align: center;
 }
 .submit-click{
   display: flex;
@@ -48,6 +49,24 @@ input[type=text], select, textarea {
 .error{
   border: 2px solid red;
 }
+
+.form-success{
+  border: 2px solid green;
+}
+.on-submit{
+  background-color: #45a049;
+}
+
+.payment-methods{
+  background-color: white;
+  border-radius: 5px;
+}
+
+.check{
+  margin: 15px;
+  margin-right: 0;
+}
+
 @media (max-width: 600px){
   .success-message{
     font-size: 1em;

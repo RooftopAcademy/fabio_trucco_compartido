@@ -1,6 +1,6 @@
 export default function scrollDown(): void {
 
-    let asideMenu = document.getElementById("aside-menu");
+    let asideMenu = document.getElementById("aside-menu") as HTMLElement;
   
     let y = window.scrollY;
     let x = window.innerWidth;
@@ -9,9 +9,10 @@ export default function scrollDown(): void {
     let widthPixels: number = 1280;
     
     if (y >= downPixels && x >= widthPixels) {
-        asideMenu.classList.add("active-inline-block");
+        asideMenu?.classList.add("active-inline-block");
     } 
     else{
-        asideMenu.classList.remove("active-inline-block")
+        asideMenu?.classList.remove("active-inline-block")
     } 
 }
+

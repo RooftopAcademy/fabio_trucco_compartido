@@ -1,4 +1,4 @@
-import Product from "../models/Product";
+import Product from "../entities/Product";
 
 export default function productDetails(product: Product){
     

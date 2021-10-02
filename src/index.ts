@@ -1,13 +1,18 @@
-import Store from "./models/Store";
+import Store from "./entities/Store";
+import RegisteredUserFactory from './factories/RegisteredUserFactory';
 import productsList from "./views/productsList";
 import commentsList from "./views/commentsList";
 import productDetails from "./views/productDetails";
-import commentInterface from './interfaces';
 import displayHamburgerMenu from "./helpers/hamburger";
 import showError from './helpers/showError';
 import showAsideMenu from './helpers/showAsideMenu';
 import backToTop from './helpers/backToTop';
 import selectComments from './helpers/selectComments';
+import successMessageOnUserSubmit from './helpers/successMessageOnUserSubmit';
+import read from './helpers/readContactFormInputs';
+import CommentInterface from './interfaces/CommentInterface';
+import runSuccessStylingOnContactForm from "./helpers/runSuccessStylingOnContactForm";
+import revertSuccessStylingOnContactForm from "./helpers/revertSuccessStylingOnContactForm";
 
 
 // DOM events 
@@ -71,97 +76,77 @@ function renderDetail(): void {
   }
 }
 
-
 function submitUser(): void {
 
     let submitButton: HTMLElement = document.getElementById("submit") as HTMLElement;
   
-    submitButton.addEventListener("click", function(e): void {
+    submitButton?.addEventListener("click", function(e): void {
       
         e.preventDefault();
-    
-        const email = (document.getElementById('lmail') as HTMLInputElement).value;
-        const name = (document.getElementById('fname')as HTMLInputElement).value;
-        const last = (document.getElementById('lname')as HTMLInputElement).value;
-        const country = (document.getElementById('country')as HTMLInputElement).value;
-        const subject = (document.getElementById('subject')as HTMLInputElement).value;
-        const element = <HTMLInputElement> document.getElementById("checkmail");
-        let isChecked: boolean = element.checked;
-        const checkMail = isChecked;
-    
-        let user = store.getUser();
-        //debugger;
+
+        console.log('hola')
+
         try{
-          user.setId(store.getNextId())
-          user.setEmail(email);
-          user.setFirstName(name);
-          user.setLastName(last);
-          user.setCountry(country);
-          user.setSubject(subject);
-          user.setChecked(checkMail);
-    
-          store.fetchUsers();
-    
-          console.log(store.getUsers())
-    
-          let div: HTMLElement = document.createElement('div');
-          div.innerHTML = "&#10003;&nbsp;&nbsp;";
-          div.classList.add('success-message');
-          let message: Node = document.createTextNode("Great! We have sent you an e-mail to confirm your account");
-          div.appendChild(message);
-    
-          document.getElementsByClassName('submit-click')[0].appendChild(div);
-    
-          let container = document.getElementById('container-form')
-          let submit = document.getElementById('submit');
-          if ( container ){ container.style.border = "2px solid green"}
-          if ( submit ) { submit.style.backgroundColor = "#45a049";}
-          (document.getElementById('submit') as HTMLInputElement).disabled = true;
-    
-          setTimeout(function(){
-            document.getElementsByClassName("success-message")[0].remove();
-            if (container) { 
-              container.style.border = "" 
-            }
-            if ( submit ){
-              submit.style.backgroundColor = "#247255";
-            }
-            (document.getElementById('submit') as HTMLInputElement).disabled = false;
-          }, 3000)
+
+          let newRUser = RegisteredUserFactory.create(store, read())
+
+          console.log('2')
+
+          store.fetchUser(newRUser);
+
+          runSuccessStylingOnContactForm();
+
+          successMessageOnUserSubmit();
+
+          setTimeout( revertSuccessStylingOnContactForm, 3000 );
         }
         catch(err){
-          alert(err)
+
           switch(err){
             case "emailError":
               showError("lmail", "container-form", "You must enter a valid email");
               break;
             case "firstNameError":
-              showError("fname", "container-form", "This field is required")
+              showError("fname", "container-form", "The first name field is required")
               break;
             case "lastNameError":
-              showError("lname", "container-form", "This field is required")
+              showError("lname", "container-form", "The last name field is required")
+              break;
+            case "nicknameError":
+              showError("nick", "container-form", "Enter a valid nickname")
+              break;
+            case "phoneNumberError":
+              showError("phone", "container-form", "Enter a valid phone number")
+              break;
+            case "paymentMethodsError":
+              showError("credit", "container-form", "You have to choose at least one payment method")
+              break;
+            case "passwordError":
+              showError("password", "container-form", "Choose a valid password")
               break;
           }
         }
     })
   }
   
-  (() => {
+(() => {
     async function getCommentsFromApi() {
-      try {
-        let res = await fetch('https://jsonplaceholder.typicode.com/comments'),
-        json: commentInterface[] = await res.json();
-  
-        if (!res.ok){ throw new Error("algo saió mal")}
-  
-        selectComments(store, json);
-  
-        commentsList(store.getComments());
-  
-      }
-      catch(err) {
-          console.log(err)
-      }
+
+        try {
+          let res = await fetch('https://jsonplaceholder.typicode.com/comments'),
+          json: CommentInterface[] = await res.json();
+    
+          if (!res.ok){ throw new Error("algo saió mal")}
+    
+          selectComments(store, json);
+    
+          commentsList(store.getComments());
+    
+        }
+        catch(err) {
+            console.log(err)
+        }
+
     }
     getCommentsFromApi();
 })()

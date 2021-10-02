@@ -1,4 +1,4 @@
-export default class User{
+export default abstract class User{
 
     protected _id: number
     protected _email: string
@@ -7,16 +7,6 @@ export default class User{
     protected _country: string
     protected _subject: string
     protected _checked: boolean
-
-    constructor(){
-        this._id = null;
-        this._email = '';
-        this._firstName = '';
-        this._lastName = '';
-        this._country = '';
-        this._subject = '';
-        this._checked = true;
-    }
 
     getId(){
         return this._id
@@ -61,14 +51,6 @@ export default class User{
 
     setCountry (value: string) { 
         return this._country = value;
-    }
-
-    getSubject(){
-        return this._subject;
-    }
-
-    setSubject (value: string) { 
-        return this._subject = value;
     }
 
     getChecked() {
