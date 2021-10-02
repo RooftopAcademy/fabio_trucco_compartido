@@ -84,13 +84,9 @@ function submitUser(): void {
       
         e.preventDefault();
 
-        console.log('hola')
-
         try{
 
           let newRUser = RegisteredUserFactory.create(store, read())
-
-          console.log('2')
 
           store.fetchUser(newRUser);
 
