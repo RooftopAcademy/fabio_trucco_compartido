@@ -70,6 +70,13 @@ input[type=text], select, textarea {
   display: flex;
 }
 
+.input-error{
+  margin-left: 15px;
+  background-color: rgb(242, 250, 135);
+  border-radius: 5px;
+  padding: 5px;
+}
+
 @media (max-width: 600px){
   .success-message{
     font-size: 1em;
