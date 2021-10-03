@@ -6,6 +6,6 @@ export default function showMessageOnUserSubmit(referenceId: string, msg: string
     let message: Node = document.createTextNode(msg);
     div.appendChild(message);
 
-    return document.getElementsByClassName(referenceId)[0].appendChild(div);  
+    return document.getElementById(referenceId)?.appendChild(div);  
 
 }
