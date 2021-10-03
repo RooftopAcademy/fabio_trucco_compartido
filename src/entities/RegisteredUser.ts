@@ -1,6 +1,6 @@
 import User from './User';
 
-export default class RegisteredUser extends User{
+export default class RegisteredUser extends User {
 
     protected _nickname: string
     protected _phoneNumber: string;

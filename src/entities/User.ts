@@ -1,4 +1,4 @@
-export default abstract class User{
+export default abstract class User {
 
     protected _id: number
     protected _email: string

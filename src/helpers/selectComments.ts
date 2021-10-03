@@ -1,10 +1,10 @@
 import Store from "../entities/Store";
-import commentInterface from "../interfaces/CommentInterface";
+import CommentInterface from "../interfaces/CommentInterface";
 import saveProperComments from "./saveProperComments";
 
-export default function selectComments(store: Store, json: commentInterface[]): void {
+export default function selectComments(store: Store, json: CommentInterface[]): void {
 
-    json.forEach((comment: commentInterface) => {
+    json.forEach((comment: CommentInterface) => {
 
       saveProperComments(store, comment);
 

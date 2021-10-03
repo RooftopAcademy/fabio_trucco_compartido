@@ -1,5 +1,5 @@
-export default interface PageInterface{
-    render (c: HTMLElement) : void
+export default interface PageInterface {
+    render(c: HTMLElement) : void
 
-    registerEvents (d : Document): void
+    registerEvents(d : Document): void
 }
