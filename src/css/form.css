@@ -66,6 +66,9 @@ input[type=text], select, textarea {
   margin: 15px;
   margin-right: 0;
 }
+.label{
+  display: flex;
+}
 
 @media (max-width: 600px){
   .success-message{
