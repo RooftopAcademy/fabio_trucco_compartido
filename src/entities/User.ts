@@ -1,3 +1,5 @@
+import UserInputError from './UserInputError';
+
 export default abstract class User {
 
     protected _id: number
@@ -18,9 +20,15 @@ export default abstract class User {
     getEmail(){
         return this._email;
     }
+
+    /**
+     * If a setter throws is faulty it throws an InputError
+     * with info to be rendered
+     */
+
     setEmail (value: string): string { 
-        if (typeof value !== "string" || !value.includes("@")) {
-            throw "emailError";
+        if (!value.includes('@')) {
+            throw new UserInputError('lmail', 'container-form', 'You must enter a valid email'); 
           }
         return this._email = value;
     }
@@ -30,8 +38,8 @@ export default abstract class User {
     }
 
     setFirstName(value: string): string { 
-        if (typeof value !== "string" || value.length == 0 ) {
-            throw "firstNameError";
+        if (value.length == 0) {
+            throw new UserInputError('fname', 'container-form', 'The first name field is required');
           }
         return this._firstName = value;
         }
@@ -39,8 +47,8 @@ export default abstract class User {
         return this._lastName;
     }
     setLastName (value: string): string { 
-        if (typeof value !== "string" || value.length == 0 ) {
-            throw "lastNameError";
+        if (value.length == 0) {
+            throw new UserInputError('lname', 'container-form', 'The last name field is required');
         }
         return this._lastName = value;
     }

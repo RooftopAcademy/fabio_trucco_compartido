@@ -1,3 +1,4 @@
+import UserInputError from './UserInputError';
 import User from './User';
 
 export default class RegisteredUser extends User {
@@ -11,9 +12,14 @@ export default class RegisteredUser extends User {
         return this._nickname;
     }
     
+    /**
+     * If a setter throws is faulty it throws an InputError
+     * with info to be rendered
+     */
+
     setNickname(value: string): void {
         if (value.length == 0){
-            throw 'nickname error'
+            throw new UserInputError('nick', 'container-form', 'Enter a valid nickname')
         }
         this._nickname = value;
     }
@@ -24,7 +30,7 @@ export default class RegisteredUser extends User {
     
     setPhoneNumber(value: string): void {
         if ( value.length < 12 ){
-            throw "phoneNumberError"
+            throw new UserInputError('phone', 'container-form', 'Enter a valid phone number')
         }
         this._phoneNumber = value;
     }
@@ -35,7 +41,7 @@ export default class RegisteredUser extends User {
     
     setPaymentMethods(value: string[]): void {
         if (value.length == 0){
-            throw 'paymentMethodsError'
+            throw new UserInputError('credit', 'container-form', 'You have to choose at least one payment method')
         }
         this._paymentMethods = value;
     }
@@ -46,7 +52,7 @@ export default class RegisteredUser extends User {
     
     setPassword(value: string): void {
         if (value.length < 6){
-            throw "passwordError";
+            throw new UserInputError('password', 'container-form', 'Choose a valid password')
         }
         this._password = value;
     }

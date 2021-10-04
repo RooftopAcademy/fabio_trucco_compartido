@@ -8,11 +8,12 @@ import showError from './helpers/showError';
 import showAsideMenu from './helpers/showAsideMenu';
 import backToTop from './helpers/backToTop';
 import selectComments from './helpers/selectComments';
-import successMessageOnUserSubmit from './helpers/successMessageOnUserSubmit';
+import showMessageOnUserSubmit from './helpers/showMessageOnUserSubmit';
 import read from './helpers/readContactFormInputs';
 import CommentInterface from './interfaces/CommentInterface';
 import runSuccessStylingOnContactForm from "./helpers/runSuccessStylingOnContactForm";
 import revertSuccessStylingOnContactForm from "./helpers/revertSuccessStylingOnContactForm";
+import UserInputError from "./entities/UserInputError";
 
 
 // DOM events 
@@ -47,6 +48,7 @@ function renderListProducts(): void {
   )
 }
 
+
 function saveProductId(): void {
 
   let detail: HTMLCollection = document.getElementsByClassName("shop-item-img");
@@ -76,6 +78,7 @@ function renderDetail(): void {
   }
 }
 
+
 function submitUser(): void {
 
     let submitButton: HTMLElement = document.getElementById("submit") as HTMLElement;
@@ -92,35 +95,18 @@ function submitUser(): void {
 
           runSuccessStylingOnContactForm();
 
-          successMessageOnUserSubmit();
+          showMessageOnUserSubmit('submit-click', 'Great! We have sent you an emil to confirm your account', 'success-message');
 
           setTimeout( revertSuccessStylingOnContactForm, 3000 );
         }
-        catch(err){
+        catch(err) {
 
-          switch(err){
-            case "emailError":
-              showError("lmail", "container-form", "You must enter a valid email");
-              break;
-            case "firstNameError":
-              showError("fname", "container-form", "The first name field is required")
-              break;
-            case "lastNameError":
-              showError("lname", "container-form", "The last name field is required")
-              break;
-            case "nicknameError":
-              showError("nick", "container-form", "Enter a valid nickname")
-              break;
-            case "phoneNumberError":
-              showError("phone", "container-form", "Enter a valid phone number")
-              break;
-            case "paymentMethodsError":
-              showError("credit", "container-form", "You have to choose at least one payment method")
-              break;
-            case "passwordError":
-              showError("password", "container-form", "Choose a valid password")
-              break;
+          if (err instanceof UserInputError) {
+
+            return showError(err.getInputId(), err.getContainertId(), err.getMessage())
+
           }
+          alert(err.message)
         }
     })
   }
@@ -132,7 +118,7 @@ function submitUser(): void {
           let res = await fetch('https://jsonplaceholder.typicode.com/comments'),
           json: CommentInterface[] = await res.json();
     
-          if (!res.ok){ throw new Error("algo saió mal")}
+          if (!res.ok) { throw new Error("algo salió mal")}
     
           selectComments(store, json);
     

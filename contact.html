@@ -56,13 +56,20 @@
 
                 <div class="container" id="container-form">
                     <form action="" id="user-form">
-                        <label for="lmail">E-mail</label>
+
+                        <div class="label" id="label-lmail">
+                            <label for="lmail">E-mail</label>
+                        </div>
                         <input type="text" id="lmail" name="email" placeholder="Your e-mail....">
-                    
-                        <label for="fname">First Name</label>
+                        
+                        <div class="label" id="label-fname">
+                            <label for="fname">First Name</label>
+                        </div>
                         <input type="text" id="fname" name="firstname" placeholder="Your name...">
 
-                        <label for="lname">Last Name</label>
+                        <div class="label" id="label-lname">
+                            <label for="lname">Last Name</label>
+                        </div>
                         <input type="text" id="lname" name="lastname" placeholder="Your last name...">
                     
                         <label for="country">Country</label>
@@ -80,8 +87,9 @@
 
                         </select>
 
-                        <label for="paymentsMethods">Payments methods</label>
-                        <br>
+                        <div class="label" id="label-credit">
+                            <label for="paymentsMethods">Payments methods</label>
+                        </div>
                         <br>
                         <div class="payment-methods">
 
@@ -97,19 +105,25 @@
                         </div>
                         <br>
 
-                        <label for="nick">Nickname</label>
+                        <div class="label" id="label-nick">
+                            <label for="nick">Nickname</label>
+                        </div>
                         <input type="text" id="nick" name="nickname" placeholder="Choose your nick...">
 
-                        <label for="phone">Phone Number</label>
+                        <div class="label" id="label-phone">
+                            <label for="phone">Phone Number</label>
+                        </div>
                         <input type="text" id="phone" name="phonenNumber" placeholder="Your phone...">
 
-                        <label for="password">Password</label>
+                        <div class="label" id="label-password">
+                            <label for="password">Password</label>
+                        </div>
                         <input type="text" id="password" name="password" placeholder="No less than 6 chars">
 
                         <input type="checkbox" class="check" id="checkmail" checked>
                         <label for="check-label" >&nbsp;&nbsp;Send me e-mails and updated offers!</label>
                         <br>
-                        <div class="submit-click">
+                        <div class="submit-click" id="submit-click">
                             <input type="submit" value="Submit" id="submit" >
                             &nbsp;&nbsp;&nbsp;
                         </div>
