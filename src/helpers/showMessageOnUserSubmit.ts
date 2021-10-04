@@ -1,11 +1,7 @@
-export default function showMessageOnUserSubmit(referenceId: string, msg: string, style: string) : HTMLElement {
+export default function showMessageOnUserSubmit(referenceId: string, msg: string, style: string) : void {
 
-    let div: HTMLElement = document.createElement('div');
-
-    div.classList.add(style);  
-    let message: Node = document.createTextNode(msg);
-    div.appendChild(message);
-
-    return document.getElementById(referenceId)?.appendChild(div);  
+    let mainDiv : HTMLElement = document.getElementById(referenceId)
+                    
+    mainDiv.innerHTML += `<div class="${style}">${msg}<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span></div>`  
 
 }
