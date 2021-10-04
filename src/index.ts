@@ -99,9 +99,9 @@ function submitUser(): void {
 
           setTimeout( revertSuccessStylingOnContactForm, 3000 );
         }
-        catch(err){
+        catch(err) {
 
-          if (err instanceof UserInputError){
+          if (err instanceof UserInputError) {
 
             return showError(err.getInputId(), err.getContainertId(), err.getMessage())
 
@@ -118,7 +118,7 @@ function submitUser(): void {
           let res = await fetch('https://jsonplaceholder.typicode.com/comments'),
           json: CommentInterface[] = await res.json();
     
-          if (!res.ok){ throw new Error("algo salió mal")}
+          if (!res.ok) { throw new Error("algo salió mal")}
     
           selectComments(store, json);
     
