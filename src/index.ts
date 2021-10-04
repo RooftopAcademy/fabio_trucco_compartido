@@ -8,7 +8,7 @@ import showError from './helpers/showError';
 import showAsideMenu from './helpers/showAsideMenu';
 import backToTop from './helpers/backToTop';
 import selectComments from './helpers/selectComments';
-import successMessageOnUserSubmit from './helpers/successMessageOnUserSubmit';
+import showMessageOnUserSubmit from './helpers/showMessageOnUserSubmit';
 import read from './helpers/readContactFormInputs';
 import CommentInterface from './interfaces/CommentInterface';
 import runSuccessStylingOnContactForm from "./helpers/runSuccessStylingOnContactForm";
@@ -95,7 +95,7 @@ function submitUser(): void {
 
           runSuccessStylingOnContactForm();
 
-          successMessageOnUserSubmit();
+          showMessageOnUserSubmit('submit-click', 'Great! We have sent you an emil to confirm your account', 'success-message');
 
           setTimeout( revertSuccessStylingOnContactForm, 3000 );
         }

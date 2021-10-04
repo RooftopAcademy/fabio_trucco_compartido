@@ -66,6 +66,30 @@ input[type=text], select, textarea {
   margin: 15px;
   margin-right: 0;
 }
+.label{
+  display: flex;
+}
+
+.input-error{
+  margin-left: 15px;
+  background-color: rgb(242, 250, 135);
+  border-radius: 5px;
+  padding: 5px;
+}
+.closebtn {
+  margin-left: 15px;
+  color: rgb(151, 153, 5);
+  font-weight: bold;
+  float: right;
+  font-size: 40px;
+  line-height: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
 
 @media (max-width: 600px){
   .success-message{
