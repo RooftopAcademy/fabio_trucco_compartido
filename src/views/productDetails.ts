@@ -1,6 +1,6 @@
 import Product from "../entities/Product";
 
-export default function productDetails(product: Product){
+export default function productDetails(product: Product) {
     
     let stars: string[] = [
         `<img src='/images/star.png' class='rating-star '>`,

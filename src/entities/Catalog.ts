@@ -7,6 +7,7 @@ export default class Catalog{
     constructor(){
         this._products = [];
     }
+    
     all(): Product[]{
         return this._products;
     }
