@@ -1,4 +1,4 @@
-export default function revertSuccessStylingOnContactForm() {
+export default function revertSuccessStylingOnRegisterForm() {
     
     document.getElementsByClassName("success-message")[0].remove();
 
