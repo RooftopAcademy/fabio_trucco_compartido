@@ -62,8 +62,11 @@ export default function productDetails(product: Product) {
             ${product.getDescription()}
         </p>
         <br>
-        <h1 class="user-reviews">User reviews: </h1>
-        <ul class="reviews${product.getId()}">
+        <button class="user-reviews" id="user-reviews-button">
+            <h1>User reviews</h1>
+            <img class="arrow" id="arrow">
+        </button>
+        <ul class="reviews${product.getId()} d-none" id="reviews${product.getId()}">
 
         </ul>
     </div>
