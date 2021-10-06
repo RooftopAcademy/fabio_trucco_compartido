@@ -1,5 +1,7 @@
 import PageInterface from "../interfaces/PageInterface";
 import aboutComponent from '../components/aboutComponent';
+import displayHamburgerMenu from '../helpers/hamburger';
+
 
 export default class AboutPage implements PageInterface {
     
@@ -8,7 +10,9 @@ export default class AboutPage implements PageInterface {
         c.innerHTML = aboutComponent()
     }
 
-    registerEvents(d : Document): void {
+    registerEvents(): void {
+
+        displayHamburgerMenu();
 
     }
 

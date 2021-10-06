@@ -12,9 +12,9 @@ export default function homeComponent() : string {
             <div class="column">
 
                 <h1 class="welcome"> 
-                    Hi! Welcome to <a href="about.html" brand-name brand-name-welcome">Libra</a>, 
+                    Hi! Welcome to <a href="#/about" brand-name brand-name-welcome">Libra</a>, 
                     the place where you can find the most beautiful 
-                    and professional chess sets. <a href="store.html">Check it out!</a>
+                    and professional chess sets. <a href="#/store">Check it out!</a>
                 </h1>
 
                 <div class="login-form">
