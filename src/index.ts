@@ -39,9 +39,11 @@ app.render('#/');
 
 
 window.addEventListener("hashchange", () => {
+
 	const route = window.location.hash;
 
 	app.render(route);
+	
 });
 
 export { store, catalog };

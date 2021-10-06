@@ -6,6 +6,10 @@ import productDetailsComponent from "../components/productDetailsComponent";
 import CommentInterface from '../interfaces/CommentInterface';
 import selectComments from '../helpers/selectComments';
 import commentsList from '../views/commentsList';
+import displayHamburgerMenu from '../helpers/hamburger';
+import backToTop from '../helpers/backToTop';
+import showAsideMenu from '../helpers/showAsideMenu';
+
 
 export default class ProductDetailsPage implements PageInterface {
 
@@ -19,7 +23,13 @@ export default class ProductDetailsPage implements PageInterface {
 
     }
 
-    registerEvents(d : Document): void {
+    registerEvents(): void {
+
+        showAsideMenu();
+
+        displayHamburgerMenu();
+
+        backToTop();
 
     }
 
@@ -29,7 +39,7 @@ function renderDetail(): void {
 
     const productId: number = parseInt(routeParams().productId);
 
-    let product = catalog?.findById(productId);
+    let product = catalog.findById(productId);
 
     let content = document.getElementsByClassName("content details")[0];
     content.innerHTML = productDetails(product);
@@ -41,6 +51,7 @@ function renderComments() {
     async function getCommentsFromApi() {
 
         try {
+
           let res = await fetch('https://jsonplaceholder.typicode.com/comments'),
           json: CommentInterface[] = await res.json();
     
@@ -52,7 +63,9 @@ function renderComments() {
     
         }
         catch(err) {
+
             console.log(err)
+            
         }
 
     }
