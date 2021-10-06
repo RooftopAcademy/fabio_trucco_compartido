@@ -9,6 +9,8 @@ import commentsList from '../views/commentsList';
 import displayHamburgerMenu from '../helpers/hamburger';
 import backToTop from '../helpers/backToTop';
 import showAsideMenu from '../helpers/showAsideMenu';
+import toggleArrowOnClick from '../helpers/toggleArrowOnClick';
+import toggleDisplay from '../helpers/toggleDisplay';
 
 
 export default class ProductDetailsPage implements PageInterface {
@@ -19,7 +21,7 @@ export default class ProductDetailsPage implements PageInterface {
 
        renderDetail();
 
-       renderComments();  // Podría ser un evento en caso de apretar un botón
+       renderComments(); 
 
     }
 
@@ -30,6 +32,8 @@ export default class ProductDetailsPage implements PageInterface {
         displayHamburgerMenu();
 
         backToTop();
+
+        toggleCommentsOnClick();
 
     }
 
@@ -65,9 +69,22 @@ function renderComments() {
         catch(err) {
 
             console.log(err)
-            
+
         }
 
     }
     getCommentsFromApi();
+}
+
+function toggleCommentsOnClick() {
+
+    const userReviewsButton = document.getElementsByClassName('user-reviews')[0];
+
+    userReviewsButton.addEventListener('click', () => {
+        
+        toggleArrowOnClick('arrow');
+
+        toggleDisplay(`reviews${routeParams().productId}`);
+
+    })
 }
