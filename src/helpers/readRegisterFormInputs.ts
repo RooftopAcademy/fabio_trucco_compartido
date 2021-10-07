@@ -3,7 +3,7 @@ import isCheckBoxChecked from './isCheckBoxChecked'
 import RegisteredUserInterface from '../interfaces/RegisteredUserInterface';
 
 
-export default function readContactFormInputs (): RegisteredUserInterface {
+export default function readRegisterFormInputs (): RegisteredUserInterface {
 
     return {
 

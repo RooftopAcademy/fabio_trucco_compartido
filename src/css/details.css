@@ -104,6 +104,39 @@ up-section{
     width:60%;
 }
 
+.user-reviews img{
+    height: 30px;
+    width: 30px;
+    margin-top: 3px;
+    margin-left: 5px;
+}
+
+.arrow{
+    content: url(/images/arrow-down.png);
+}
+
+.arrow-up{
+    content: url(/images/arrow-up.png);
+    
+}
+
+.comment-line{
+    padding: 10px;
+}
+
+.user-reviews{
+
+    padding: 5px;
+    border: none;
+    background-color: white;
+    display: flex;
+}
+
+.user-reviews:hover{
+    background-color: rgb(230, 226, 222);
+    border-radius: 5px;
+}
+
 @media (max-width: 814px){
     .buy-button{
         font-size: 1.3em;

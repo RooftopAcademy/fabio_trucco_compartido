@@ -1,12 +1,16 @@
 import PageInterface from "../interfaces/PageInterface";
+import homeComponent from "../components/homeComponent";
+import displayHamburgerMenu from '../helpers/hamburger';
 
 export default class HomePage implements PageInterface{
 
     render (c: HTMLElement): void {
-        c.innerHTML = 'HomePage'
+        c.innerHTML = homeComponent();
     }
 
     registerEvents (d : Document): void {
+
+        displayHamburgerMenu();
 
     }
 

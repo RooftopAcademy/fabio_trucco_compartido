@@ -1,139 +1,51 @@
-import Store from "./entities/Store";
-import RegisteredUserFactory from './factories/RegisteredUserFactory';
-import productsList from "./views/productsList";
-import commentsList from "./views/commentsList";
-import productDetails from "./views/productDetails";
-import displayHamburgerMenu from "./helpers/hamburger";
-import showError from './helpers/showError';
-import showAsideMenu from './helpers/showAsideMenu';
-import backToTop from './helpers/backToTop';
-import selectComments from './helpers/selectComments';
-import showMessageOnUserSubmit from './helpers/showMessageOnUserSubmit';
-import read from './helpers/readContactFormInputs';
-import CommentInterface from './interfaces/CommentInterface';
-import runSuccessStylingOnContactForm from "./helpers/runSuccessStylingOnContactForm";
-import revertSuccessStylingOnContactForm from "./helpers/revertSuccessStylingOnContactForm";
-import UserInputError from "./entities/UserInputError";
+import Store from './entities/Store'
+import PageInterface from './interfaces/PageInterface'
+import getPage from './getPage'
+import getCommentsFromApi from './helpers/getCommentsFromApi';
 
+const container = document.getElementById("all") as HTMLElement;
 
-// DOM events 
+function App(container: HTMLElement): {
+	render: (route: string) => void;
+	store: Store;
+} {
 
-const store = new Store;
+	const store = new Store;
 
-let catalog = store.getCatalog();
+	store.fetchProducts();
 
-store.fetchProducts();
+	function render(route: string) {
 
-renderListProducts(); 
+		/**
+		* Obtiene la página en base al url indicado
+		* Accede a los métodos (render y registerEvents) de las páginas para cargar la información
+		*/
 
-saveProductId();
+		let page: PageInterface = new (getPage(route) as any)();
 
-renderDetail();
+		page.render(container);
+		page.registerEvents(document);
+	}
 
-submitUser();
-
-displayHamburgerMenu();
-
-showAsideMenu();
-
-backToTop();
-
-function renderListProducts(): void {
-
-  let shopItems = document.getElementsByClassName('shop-items');
-
-  Array.from(shopItems).forEach((list) => {
-      list.innerHTML += productsList(catalog.all())
-    }
-  )
+	return { render, store };
 }
 
+const app = App(container);
+const store = app.store;
+const catalog = store.getCatalog();
 
-function saveProductId(): void {
+window.onload = () => (window.location.hash = '#/');
 
-  let detail: HTMLCollection = document.getElementsByClassName("shop-item-img");
+app.render('#/');
 
-  Array.from(detail)?.forEach((el) =>{
-    el.addEventListener("click", function(e){
-      
-      let productId: string = this.id.slice(-1);
+getCommentsFromApi();
 
-      localStorage.setItem('id', productId);
+window.addEventListener("hashchange", () => {
 
-      window.location.href = `details.html`;
-    })
-  })
-}
+	const route = window.location.hash;
 
+	app.render(route);
+	
+});
 
-function renderDetail(): void {
-
-  if (window.location.href == "http://127.0.0.1:5500/details.html") {
-    let productId: number = Number(localStorage.getItem('id'));
-  
-    let product = catalog.findById(productId); 
-  
-    let content = document.getElementsByClassName("content details")[0];
-    content.innerHTML = productDetails(product);
-  }
-}
-
-
-function submitUser(): void {
-
-    let submitButton: HTMLElement = document.getElementById("submit") as HTMLElement;
-  
-    submitButton?.addEventListener("click", function(e): void {
-      
-        e.preventDefault();
-
-        try{
-
-          let newRUser = RegisteredUserFactory.create(store, read())
-
-          store.fetchUser(newRUser);
-
-          runSuccessStylingOnContactForm();
-
-          showMessageOnUserSubmit('submit-click', 'Great! We have sent you an emil to confirm your account', 'success-message');
-
-          setTimeout( revertSuccessStylingOnContactForm, 3000 );
-        }
-        catch(err) {
-
-          if (err instanceof UserInputError) {
-
-            return showError(err.getInputId(), err.getContainertId(), err.getMessage())
-
-          }
-          alert(err.message)
-        }
-    })
-  }
-  
-(() => {
-    async function getCommentsFromApi() {
-
-        try {
-          let res = await fetch('https://jsonplaceholder.typicode.com/comments'),
-          json: CommentInterface[] = await res.json();
-    
-          if (!res.ok) { throw new Error("algo salió mal")}
-    
-          selectComments(store, json);
-    
-          commentsList(store.getComments());
-    
-        }
-        catch(err) {
-            console.log(err)
-        }
-
-    }
-    getCommentsFromApi();
-})()
-
-
-
-
-
+export { store, catalog };
