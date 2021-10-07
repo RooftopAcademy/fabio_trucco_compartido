@@ -1,6 +1,7 @@
 import Store from './entities/Store'
 import PageInterface from './interfaces/PageInterface'
 import getPage from './getPage'
+import getCommentsFromApi from './helpers/getCommentsFromApi';
 
 const container = document.getElementById("all") as HTMLElement;
 
@@ -37,6 +38,7 @@ window.onload = () => (window.location.hash = '#/');
 
 app.render('#/');
 
+getCommentsFromApi();
 
 window.addEventListener("hashchange", () => {
 
