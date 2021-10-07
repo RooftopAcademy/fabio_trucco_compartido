@@ -26,7 +26,7 @@ export default function homeComponent() : string {
                 </div>
 
                 <button class="login-button" id="login-button">Login</button>
-                <br><br>
+                
                 <div class="bail-out">
                     <a href="#/signup" class="bail-out-links">Create new account</a>
                     <a href="#" class="bail-out-links">Forgot password?</a>

@@ -12,7 +12,7 @@ export default class StorePage implements PageInterface {
 
         c.innerHTML = storeComponent();
 
-        renderListProducts();
+        renderListProducts('shop-items');
 
     }
 
@@ -30,11 +30,11 @@ export default class StorePage implements PageInterface {
 
 }
 
-function renderListProducts(): void {
+function renderListProducts(docElementId: string): void {
 
-    let shopItems = document.getElementsByClassName('shop-items');
+    let docElement = document.getElementsByClassName(docElementId);
   
-    Array.from(shopItems).forEach((list) => {
+    Array.from(docElement).forEach((list) => {
         list.innerHTML += productsList(catalog.all());
       }
     )
