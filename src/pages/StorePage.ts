@@ -1,4 +1,5 @@
 import PageInterface from "../interfaces/PageInterface";
+import Product from "../entities/Product";
 import storeComponent from "../components/storeComponent";
 import productsList from "../views/productsList";
 import displayHamburgerMenu from '../helpers/hamburger';
@@ -12,7 +13,7 @@ export default class StorePage implements PageInterface {
 
         c.innerHTML = storeComponent();
 
-        renderListProducts('shop-items');
+        renderListProducts('shop-items', catalog.all());
 
     }
 
@@ -30,12 +31,12 @@ export default class StorePage implements PageInterface {
 
 }
 
-function renderListProducts(docElementId: string): void {
+function renderListProducts(docElementId: string, products: Product[]): void {
 
     let docElement = document.getElementsByClassName(docElementId);
   
     Array.from(docElement).forEach((list) => {
-        list.innerHTML += productsList(catalog.all());
+        list.innerHTML += productsList(products);
       }
     )
 };
@@ -55,15 +56,3 @@ function seeProductDetails(): void {
     })
   }
   
-  
-//   function renderDetail(): void {
-  
-//     if (window.location.href == "http://127.0.0.1:5500/details.html") {
-//       let productId: number = Number(localStorage.getItem('id'));
-    
-//       let product = catalog.findById(productId); 
-    
-//       let content = document.getElementsByClassName("content details")[0];
-//       content.innerHTML = productDetails(product);
-//     }
-//   }
