@@ -1,6 +1,6 @@
 export default class Product{
     protected id: number
-    protected name: string
+    protected pName: string
     protected maker: string
     protected material: string
     protected theme: string
@@ -19,10 +19,10 @@ export default class Product{
         return this.id = value;
     }
     getName(){
-        return this.name;
+        return this.pName;
     }
     setName(value: string){
-        return this.name = value;
+        return this.pName = value;
     }
 
     getMaker(){

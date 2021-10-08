@@ -1,9 +1,9 @@
-import multipleChecks from './multipleChecks'
-import isChecked from './isChecked'
-import RUserInterface from '../interfaces/RUserInterface';
+import filterMultipleChecks from './filterMultipleChecks'
+import isCheckBoxChecked from './isCheckBoxChecked'
+import RegisteredUserInterface from '../interfaces/RegisteredUserInterface';
 
 
-export default function readContactFormInputs (): RUserInterface {
+export default function readRegisterFormInputs (): RegisteredUserInterface {
 
     return {
 
@@ -11,10 +11,10 @@ export default function readContactFormInputs (): RUserInterface {
         firstName : (document.getElementById('fname')as HTMLInputElement).value,
         lastName : (document.getElementById('lname')as HTMLInputElement).value,
         country : (document.getElementById('country')as HTMLInputElement).value,
-        checked : isChecked('checkmail'),
+        checked : isCheckBoxChecked('checkmail'),
         nickname: (document.getElementById('nick') as HTMLInputElement).value,
         phoneNumber: (document.getElementById('phone') as HTMLInputElement).value,
-        paymentMethods: multipleChecks(['credit', 'debit', 'crypto']),
+        paymentMethods: filterMultipleChecks(['credit', 'debit', 'crypto']),
         password: (document.getElementById('password') as HTMLInputElement).value,
 
     }

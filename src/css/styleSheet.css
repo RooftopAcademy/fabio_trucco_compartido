@@ -371,6 +371,10 @@ html, body{
     background-color: #a5a2a2;
 }
 
+.d-none{
+    display:none;
+}
+
 
 @media all and (max-width: 860px){
     .hamburger{

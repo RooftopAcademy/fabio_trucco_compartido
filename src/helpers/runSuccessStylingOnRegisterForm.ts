@@ -1,4 +1,4 @@
-export default function runSuccessStylingOnContactForm() {
+export default function runSuccessStylingOnRegisterForm() {
 
     let containerForm = document.getElementById('container-form') as HTMLElement;
     let submitButton = document.getElementById('submit') as HTMLInputElement;

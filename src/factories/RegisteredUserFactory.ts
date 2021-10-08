@@ -1,10 +1,10 @@
 import RegisteredUser from '../entities/RegisteredUser';
 import Store from '../entities/Store';
-import RUserInterface from '../interfaces/RUserInterface';
+import RegisteredUserInterface from '../interfaces/RegisteredUserInterface';
 
 export default class RegisteredUserFactory {
     
-    static create(store: Store, registeredUser: RUserInterface) : RegisteredUser {
+    static create(store: Store, registeredUser: RegisteredUserInterface) : RegisteredUser {
 
         let newRUser = new RegisteredUser;
 

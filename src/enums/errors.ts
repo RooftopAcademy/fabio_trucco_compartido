@@ -1,4 +1,4 @@
-enum Errors {
+enum InputErrorEnum {
     
     email,
     firstName,
