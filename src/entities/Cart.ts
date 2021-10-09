@@ -1,22 +1,33 @@
 import Product from "./Product";
 
-export default class Cart{
+export default class Cart {
 
-    private _products: Product[]
+    private _products: Map<Product, number>;  // It saves the product and its amount
 
     constructor(){
-        this._products = [];
+        this._products = new Map;
     }
 
-    getProducts(): Product[]{
-        return this._products
-     } 
-    addProduct(p: Product): number{
-         return this._products.push(p)
+    public getProducts(): Map<Product, number> {
+        return this._products;
+    } 
+
+    public addProduct(p: Product, amount: number): void {
+        this._products.set(p, amount);
     }
 
-    public getCartAmount(){
-        return this._products.length;
+    public findProductById(id: number): Product {
+        return Array.from(this._products.keys()).find((p) =>{ 
+            return p.getId() == id;
+        });
     }
+
+    public discartProduct(id: number): void {
+
+        Array.from(this._products.keys()).filter((p) => {
+            p.getId() != id; 
+        })
+    }
+
 }
 

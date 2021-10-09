@@ -1,12 +1,14 @@
 import routeParams from './routeParams';
 import HomePage from './pages/HomePage';
-import StorePage from './pages/StorePage'
-import AboutPage from './pages/AboutPage'
-import DetailsPage from './pages/ProductDetailsPage'
-import SignUpPage from './pages/SignUpPage'
+import StorePage from './pages/StorePage';
+import AboutPage from './pages/AboutPage';
+import DetailsPage from './pages/ProductDetailsPage';
+import SignUpPage from './pages/SignUpPage';
+import CartPage from './pages/CartPage';
 
 
 export default function getPage(url: string): HomePage {
+
 	const path: string = routeParams().path;
 
 	const routes: any = {
@@ -16,7 +18,7 @@ export default function getPage(url: string): HomePage {
 		'#/details': DetailsPage,
     '#/about': AboutPage,
     '#/signup': SignUpPage,
-		//'#/cart': CartPage,
+		'#/cart': CartPage,
 		// '/404': NotFound,
 	};
 
