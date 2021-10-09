@@ -8,7 +8,7 @@ export default class HomePage implements PageInterface{
         c.innerHTML = homeComponent();
     }
 
-    registerEvents (d : Document): void {
+    registerEvents (): void {
 
         displayHamburgerMenu();
 
