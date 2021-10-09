@@ -337,6 +337,7 @@ html, body{
 .main-content{
     display:flex;
     background: hsla(180,0%,50%,0.6);
+    justify-content: space-evenly;
 }
 .left-column{
     display: block;
