@@ -5,14 +5,14 @@ import RegisteredUser from './RegisteredUser'
 import ProductFactory from '../factories/ProductFactory'
 import UserComment from './UserComment'
 
-export default class Store{
+export default class Store {
     private _user: InvitedUser
     private _catalog: Catalog
     private _cart: Cart
     private _usersList: RegisteredUser[]
     private _comments: UserComment[]
 
-    constructor(){
+    constructor() {
         this._user = new InvitedUser;  //Si está registrado o no?? Log in
         this._catalog = new Catalog;
         this._cart = new Cart;
@@ -20,19 +20,23 @@ export default class Store{
         this._comments = [];
     }
 
-    getUser(){
+    getUser() {
+        
         return this._user;
     }
 
-    getCart(){
+    getCart() {
+
         return this._cart;
+
     }
 
-    getCatalog(){
+    getCatalog() {
+
         return this._catalog;
     }
 
-    fetchProducts(): void{
+    fetchProducts(): void {
 
         let data = [
             {id:1, name: "Classic Wood Set", maker: "Juan Gabriel", 
@@ -70,34 +74,39 @@ export default class Store{
             this._catalog.add(ProductFactory.create(item))
         })
     }
-
-    removeProductById(){
-        
-    }
     
     fetchUser(newRUser: RegisteredUser) {
+
         // Include the newly registered user to the list
         this._usersList.push(newRUser);
     }
 
     getUsers() {
+
         return this._usersList;
+
     }
 
-    getComments(){
+    getComments() {
+
         return this._comments;
+
     }
 
-    addComment(c: UserComment){
+    addComment(c: UserComment) {
+
         this._comments.push(c);
+
     }
 
-    loadUsersList(){
+    loadUsersList() {
         // Load the users list by fetching an api and getting all users
     }
 
-    getNextUserId(): number{
+    getNextUserId(): number {
+
         return this._usersList.length + 1;
+
     }
 }
 
