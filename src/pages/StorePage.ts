@@ -5,6 +5,7 @@ import productsList from "../views/productsList";
 import displayHamburgerMenu from '../helpers/hamburger';
 import backToTop from '../helpers/backToTop';
 import showAsideMenu from '../helpers/showAsideMenu';
+import addToCart from '../helpers/addToCart';
 import { catalog } from "../index";
 
 export default class StorePage implements PageInterface {
@@ -26,6 +27,8 @@ export default class StorePage implements PageInterface {
         backToTop();
 
         seeProductDetails();
+
+        addToCart('pair-single-btn', 'cart-amount');
 
     }
 
