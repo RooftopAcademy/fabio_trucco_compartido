@@ -2,42 +2,29 @@ import Product from "./Product";
 
 export default class Cart {
 
-    private _products: Map<Product, number>;  // It saves the product and its amount
+    private _products: Product []
 
     constructor() {
 
-        this._products = new Map;
+        this._products = [];
 
     }
 
-    public getProducts(): Map<Product, number> {
+    public getProducts(): Product [] {
 
-        return this._products;
+        return [...this._products];
 
     } 
 
-    public addProduct(p: Product, amount: number = 1): void {
+    public addProduct(p: Product): void {
 
-        /**
-         * If product is not in the Map, then set it with amount = 1 by default.
-         * Else increment by 1 its value(amount).
-         */
-
-        if(!this._products.has(p)){
-            this._products.set(p, amount);
-        } else {
-            for (let [key, value] of Array.from(this._products)) {
-                if( key == p ){
-                    value++;
-                }
-            }
-        }
+        this._products.push(p);
         
     }
 
     public findProductById(id: number): Product {
 
-        return Array.from(this._products.keys()).find((p) =>{ 
+        return this._products.find((p) =>{ 
             return p.getId() == id;
         });
 
@@ -45,17 +32,13 @@ export default class Cart {
 
     public discardProduct(id: number): void {
 
-        Array.from(this._products.keys()).filter((p) => {
+        this._products.filter((p) => {
             p.getId() != id; 
         })
     }
 
-    public countProducts() : number {
-
-        return Array.from(this._products.values()).reduce((a, b) => {
-            return a+b;
-        })
-
+    public getAmount() : number {
+        return this._products.length;
     }
 
 }
