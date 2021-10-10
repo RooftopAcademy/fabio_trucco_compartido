@@ -7,7 +7,7 @@ export default function productItem(product: Product): string{
         <picture class="shop-item-img" id="shop-item-image ${product.getId()}"><img class="shop-item-image" src="${product.getImage()}" alt="CHESS"></picture>
         <div class="shop-item-add">
             <span class="shop-item-price">$ ${product.getPrice()}</span>
-            <button class="pair-single-btn" role="button" type="button">Add To Cart</button>
+            <button class="pair-single-btn" role="button" type="button" data-id="${product.getId()}">Add To Cart</button>
         </div>
         <br>
     </article>
