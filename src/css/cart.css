@@ -59,7 +59,7 @@
 
 .payment-method{
     border-radius: 3px;
-    width: 8em;
+    width: 9em;
     overflow-y: 1;
 }
 
@@ -110,4 +110,8 @@
     color: rgb(124, 124, 243);
     border: none;
     cursor: pointer;
+}
+
+.empty-cart{
+    font-size: 5em;
 }
