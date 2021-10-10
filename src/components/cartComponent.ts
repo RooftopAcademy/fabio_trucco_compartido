@@ -9,11 +9,15 @@ export default function cartComponent() : string {
           <div class="cart-content" id="cart-content">
               <h1 class="cart-title">Your selections</h1>
               <hr>
-              
+
+              <!-- cartItemComponent -->
+
           </div>
 
-          <div class="purchase-div" id"purchase-div">
-              
+          <div class="purchase-div" id="purchase-div">
+
+              <!-- purchaseComponent -->
+
           </div>
 
       </div>
