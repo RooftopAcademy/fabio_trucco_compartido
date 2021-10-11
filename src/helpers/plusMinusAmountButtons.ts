@@ -1,5 +1,5 @@
 import { cart, catalog } from '../index';
-import updateCartAmount from './updateCartAmount';
+import updateNumber from './updateNumber';
 
 export default function plusMinusAmountButtons() : void {
 
@@ -24,7 +24,9 @@ export default function plusMinusAmountButtons() : void {
 
       }
 
-      updateCartAmount('cart-amount');  // Updates the cart view in the header
+      updateNumber('cart-amount', cart.getAmount());  // Updates the cart view in the header
+
+      updateNumber('float-right calc', cart.calculateTotal());
 
     })
 
