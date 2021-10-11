@@ -5,7 +5,7 @@
 .cart-item{
     flex-wrap: wrap;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 .cart-item-data{
     flex-wrap: wrap;

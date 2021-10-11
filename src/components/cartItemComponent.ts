@@ -1,9 +1,9 @@
 import Product from "../entities/Product";
-import countProduct from '../helpers/countProduct';
+import { cart } from '../index';
 
 export default function cartItemComponent(product: Product) : string {
 
-  let amount = countProduct(product.getId());
+  let amount = cart.countProduct(product.getId());
 
   return `
   <div class="cart-item">
@@ -11,9 +11,9 @@ export default function cartItemComponent(product: Product) : string {
       <span class="cart-item-data">${product.getName()}</span>
       <span class="cart-item-data">$${product.getPrice()}</span>
       <div class="cart-item-data">
-          <button class="button-amount">+</button>
-          <span class="amount">${amount}</span>
-          <button class="button-amount">-</button>
+          <button class="button-amount" id="plus-button" data-id="${product.getId()}">+</button>
+          <span class="amount" id="amount ${product.getId()}">${amount}</span>
+          <button class="button-amount" id="minus-button" data-id="${product.getId()}">-</button>
       </div>
       <span class="cart-item-data">
           <button class="discard-button" data-id="${product.getId()}" type="button">Discard</button>
