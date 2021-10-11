@@ -36,6 +36,16 @@ export default class Cart {
 
     }
 
+    public discountProduct(id: number): void {
+
+        let productTotal = this.getProducts().filter( product => product.getId() == id );
+
+        this.discardProduct(id);
+
+        productTotal.slice(1).forEach((product) => this.addProduct(product));
+
+    }
+
     public discardProduct(id: number): void {
 
         let newArray = this._products.filter(p =>  p.getId() !== id );
@@ -47,6 +57,12 @@ export default class Cart {
     public getAmount() : number {
 
         return this._products.length;
+
+    }
+
+    public countProduct(id: number) : number {
+
+        return this.getProducts().filter( product => product.getId() == id ).length;
 
     }
 
