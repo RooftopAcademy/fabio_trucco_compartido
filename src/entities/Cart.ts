@@ -68,10 +68,16 @@ export default class Cart {
 
     public calculateTotal() : number {
 
+        if( this._products.length == 0 ){
+
+            return 0;
+
+        }
+
         return this._products
             .map(product => product.getPrice())
             .reduce((prev, curr) => { return prev + curr })
-            
+                   
     }
 
 }

@@ -24,9 +24,14 @@ export default function plusMinusAmountButtons() : void {
 
       }
 
-      updateNumber('cart-amount', cart.getAmount());  // Updates the cart view in the header
+      /**
+       * Updates the cart view in the header
+       * Shows the total with 2 decimals
+       */
+      
+      updateNumber('cart-amount', cart.getAmount());  
 
-      updateNumber('float-right calc', cart.calculateTotal());
+      updateNumber('float-right calc', parseFloat(cart.calculateTotal().toFixed(2)));
 
     })
 
