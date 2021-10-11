@@ -1,15 +1,7 @@
 import Product from "../entities/Product";
 import countProduct from '../helpers/countProduct';
 
-export default function cartItemComponent(product?: Product) : string {
-
-  if ( product == null ) {
-
-      return `
-      <div class="empty-cart">Your shopping cart is empty</div>
-      `;
-
-  }
+export default function cartItemComponent(product: Product) : string {
 
   let amount = countProduct(product.getId());
 
@@ -24,7 +16,7 @@ export default function cartItemComponent(product?: Product) : string {
           <button class="button-amount">-</button>
       </div>
       <span class="cart-item-data">
-          <button class="discard-button" id="discard-button" type="button">Discard</button>
+          <button class="discard-button" data-id="${product.getId()}" type="button">Discard</button>
       </span>
   </div>
   `;
