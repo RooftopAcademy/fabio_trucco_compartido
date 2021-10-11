@@ -4,6 +4,7 @@ import displayHamburgerMenu from '../helpers/hamburger';
 import cartItemList from '../views/cartItemList';
 import purchaseComponent from '../components/purchaseComponent';
 import discardProductFromCart from '../helpers/discardProductFromCart';
+import plusMinusAmountButtons from '../helpers/plusMinusAmountButtons';
 import { cart } from '../index';
 
 export default class CartPage implements PageInterface{
@@ -35,6 +36,8 @@ export default class CartPage implements PageInterface{
     displayHamburgerMenu();
 
     discardProductFromCart();
+
+    plusMinusAmountButtons();
 
   }
 
