@@ -66,5 +66,13 @@ export default class Cart {
 
     }
 
+    public calculateTotal() : number {
+
+        return this._products
+            .map(product => product.getPrice())
+            .reduce((prev, curr) => { return prev + curr })
+            
+    }
+
 }
 
