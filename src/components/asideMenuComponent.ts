@@ -1,3 +1,5 @@
+import { cart } from '../index';
+
 export default function asideMenuComponent(): string {
   return `
   <div class="aside-menu" id="aside-menu">
@@ -6,9 +8,9 @@ export default function asideMenuComponent(): string {
               <li><a href="#/">HOME</a></li>
               <li><a href="#/store">STORE</a></li>
               <li><a href="#/about">ABOUT</a></li>
-              <li><a href="#">
+              <li><a href="#/cart">
                   <div class="cart-link">
-                      <img class="shopping-cart"src="/images/shopping-cart.png" alt="cart"><span class="cart-number">0</span>
+                      <img class="shopping-cart"src="/images/shopping-cart.png" alt="cart"><span class="cart-amount">${cart.getAmount()}</span>
                   </div>
               </a></li>
           </ul>

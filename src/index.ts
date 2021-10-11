@@ -31,8 +31,10 @@ function App(container: HTMLElement): {
 }
 
 const app = App(container);
+
 const store = app.store;
 const catalog = store.getCatalog();
+const cart = store.getCart();
 
 window.onload = () => (window.location.hash = '#/');
 
@@ -48,4 +50,4 @@ window.addEventListener("hashchange", () => {
 	
 });
 
-export { store, catalog };
+export { store, catalog, cart };

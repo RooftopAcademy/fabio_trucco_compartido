@@ -1,4 +1,3 @@
-import backToTopComponent from "./backToTopComponent";
 import footerComponent from "./footerComponent"
 import headerComponent from "./headerComponent"
 

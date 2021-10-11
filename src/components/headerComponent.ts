@@ -1,3 +1,5 @@
+import { cart } from '../index'; 
+
 export default function headerComponent(): string {
   return `
   <header class="main-header">
@@ -29,9 +31,9 @@ export default function headerComponent(): string {
               <li><a href="#/store">STORE</a></li>
               <li><a href="#/about">ABOUT</a></li>
               <li>
-                  <a href="#">
+                  <a href="#/cart">
                       <div class="cart-link">
-                          <img class="shopping-cart mh"src="/images/shopping-cart.png" alt="cart"><span class="cart-number">0</span>
+                          <img class="shopping-cart mh"src="/images/shopping-cart.png" alt="cart"><span class="cart-amount">${cart.getAmount()}</span>
                       </div>
                   </a>
               </li>

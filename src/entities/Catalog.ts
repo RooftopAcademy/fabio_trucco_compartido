@@ -1,4 +1,4 @@
-import Product from "./Product";
+import Product from './Product';
 
 export default class Catalog{
 
@@ -9,17 +9,18 @@ export default class Catalog{
     }
     
     all(): Product[]{
-        return this._products;
+        return [...this._products];
     }
 
     add(p: Product): void{
         this._products.push(p);
     }
 
-    findById(id: number): Product{
+    findById(id: number): Product {
         return this._products.find(p =>{  // Devuelve un objeto si es el mismo ID
             return p.getId() == id;
-        })
+        });
     }
+
 }
 
