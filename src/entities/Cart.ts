@@ -16,6 +16,12 @@ export default class Cart {
 
     } 
 
+    private setProducts(array: Product[]) : void {
+
+        this._products = array;
+
+    }
+
     public addProduct(p: Product): void {
 
         this._products.push(p);
@@ -32,13 +38,16 @@ export default class Cart {
 
     public discardProduct(id: number): void {
 
-        this._products.filter((p) => {
-            p.getId() != id; 
-        })
+        let newArray = this._products.filter(p =>  p.getId() !== id );
+
+        this.setProducts(newArray);
+
     }
 
     public getAmount() : number {
+
         return this._products.length;
+
     }
 
 }
