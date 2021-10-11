@@ -50,4 +50,4 @@ window.addEventListener("hashchange", () => {
 	
 });
 
-export { store, catalog, cart };
+export { store, catalog, cart, app };
