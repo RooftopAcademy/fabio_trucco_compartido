@@ -278,16 +278,23 @@ html, body{
     border-color:rgb(142, 142, 241);
     color: black;
 }
+
 .pair-single-btn:hover{
     background-color: rgb(198, 222, 245);
 }
+
 .shop-item{
     background-color: rgb(255, 255, 255);
     border-radius: 4px;
-    padding: 15px;
+    padding: 20px;
     border: 1px solid rgb(117, 117, 117);
     margin: 25px;
 }
+
+.shop-item-add{
+    padding-top: 10px
+}
+
 .shop-item-name{
     text-align: center;
     display: block;
@@ -298,6 +305,7 @@ html, body{
 }
 .shop-item-image{
     height: 200px;
+    width: 300px;
 }
 .shop-item-image:hover{
     -webkit-filter: blur(3px); /* Chrome, Safari, Opera */
