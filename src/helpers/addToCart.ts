@@ -1,6 +1,6 @@
 import routeParams from '../routeParams';
 import { cart, catalog } from '../index';
-import updateCartAmount from '../helpers/updateCartAmount';
+import updateCartAmount from './updateNumber';
 
 export default function addToCart(docClass: string, cartView?: string ) {
 
@@ -16,7 +16,7 @@ export default function addToCart(docClass: string, cartView?: string ) {
 
       if(cartView) {
 
-        updateCartAmount(cartView);
+        updateCartAmount(cartView, cart.getAmount());
     
       }
   

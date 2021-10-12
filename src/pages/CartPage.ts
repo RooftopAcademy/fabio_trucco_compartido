@@ -3,6 +3,8 @@ import cartComponent from "../components/cartComponent";
 import displayHamburgerMenu from '../helpers/hamburger';
 import cartItemList from '../views/cartItemList';
 import purchaseComponent from '../components/purchaseComponent';
+import discardProductFromCart from '../helpers/discardProductFromCart';
+import plusMinusAmountButtons from '../helpers/plusMinusAmountButtons';
 import { cart } from '../index';
 
 export default class CartPage implements PageInterface{
@@ -15,19 +17,27 @@ export default class CartPage implements PageInterface{
 
       cartContainer.innerHTML += cartItemList(cart.getProducts());
 
-      if ( cart.getProducts().length != 0 ) {
+      let purchaseDiv = document.getElementById('purchase-div');
 
-        let purchaseDiv = document.getElementById('purchase-div');
+      if ( cart.getProducts().length != 0 ) {
 
         purchaseDiv.innerHTML = purchaseComponent();
 
+      } else {
+
+        purchaseDiv.className = 'd-none';
+
       }
-      
+
   }
 
   registerEvents (): void {
 
-      displayHamburgerMenu();
+    displayHamburgerMenu();
+
+    discardProductFromCart();
+
+    plusMinusAmountButtons();
 
   }
 

@@ -1,9 +1,13 @@
+import { cart } from '../index';
+
 export default function purchaseComponent() : string {
+
+  let total = cart.calculateTotal().toFixed(2);
 
   return `
   <div class="row">
       <span class="float-left">Subtotal: </span>
-      <span class="float-right" id="subtotal"></span>
+      <span class="float-right calc" id="subtotal">${total}</span>
   </div>
   <div class="row">
       <span class="float-left">Taxes: </span>
@@ -16,7 +20,7 @@ export default function purchaseComponent() : string {
   <hr class="hr">
   <div class="row">
       <span class="float-left">Total: </span>
-      <span class="float-right" id="total"></span>
+      <span class="float-right calc" id="total">${total}</span>
   </div>
 
   <div class="container-space-around">

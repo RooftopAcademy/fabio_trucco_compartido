@@ -28,7 +28,7 @@ export default function productDetails(product: Product) {
             <h3 class="amount">Amount</h3>&nbsp;&nbsp;<input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="quantity-input" size="1" >
         </div>
         <br><br>
-        <button class="buy-button" onclick="window.location.href='#/cart'" id ="buy-button">Buy Now</button>
+        <button class="buy-button" onclick="window.location.href='#/cart'" id ="buy-button">Go to cart</button>
         <br><br>
         <div class="features">
             <img  src="/images/security.png" alt="safe" class="icon-image">
