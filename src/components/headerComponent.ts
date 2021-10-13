@@ -10,18 +10,6 @@ export default function headerComponent(): string {
 
           <span  class="hamburger" id="hamburger">&#9776;</span><span></span>
 
-          <ul class="nav-menu" >
-              <li class="nav-item">
-                  <a href="#/">HOME</a>
-              </li>
-              <li class="nav-item">
-                  <a href="#/store">STORE</a>
-              </li>
-              <li class="nav-item">
-                  <a href="#/about">ABOUT</a>
-              </li>
-          </ul>
-
       </div>
 
       <nav class="main-header-links">
