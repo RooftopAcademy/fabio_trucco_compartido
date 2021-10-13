@@ -1,13 +1,17 @@
-import footerComponent from "./footerComponent"
-import headerComponent from "./headerComponent"
+import footerComponent from "./footerComponent";
+import headerComponent from "./headerComponent";
+import navMenuComponent from './navMenuComponent';
 
 export default function aboutComponent() : string {
   return `
   ${headerComponent()}
+  
   <main class="main-content">
-      
+  
       <div class="content">
 
+          ${navMenuComponent()}
+          
           <h2 class="section-header">About</h2>
 
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>

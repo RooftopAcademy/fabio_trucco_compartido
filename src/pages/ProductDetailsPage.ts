@@ -4,7 +4,7 @@ import { store, catalog } from '../index';
 import productDetails from '../views/productDetails';
 import productDetailsComponent from "../components/productDetailsComponent";
 import commentsList from '../views/commentsList';
-import displayHamburgerMenu from '../helpers/hamburger';
+import displayHamburgerMenu from '../helpers/displayHamburger';
 import backToTop from '../helpers/backToTop';
 import showAsideMenu from '../helpers/showAsideMenu';
 import toggleArrowOnClick from '../helpers/toggleArrowOnClick';

@@ -1,6 +1,6 @@
 import PageInterface from "../interfaces/PageInterface";
 import signUpComponent from '../components/signUpComponent';
-import displayHamburgerMenu from '../helpers/hamburger';
+import displayHamburgerMenu from '../helpers/displayHamburger';
 import backToTop from '../helpers/backToTop';
 import read from '../helpers/readRegisterFormInputs';
 import runSuccessStylingOnRegisterForm from '../helpers/runSuccessStylingOnRegisterForm';
