@@ -1,6 +1,7 @@
 import backToTopComponent from "./backToTopComponent";
 import footerComponent from "./footerComponent";
 import headerComponent from "./headerComponent";
+import navMenuComponent from './navMenuComponent';
 
 export default function signUpComponent() : string {
   return `
@@ -8,6 +9,9 @@ export default function signUpComponent() : string {
 
   <main class="main-content">
     <div class="content content-menu">
+
+      ${navMenuComponent()}
+
       <div class="box">
         <h1 class="welcome"> 
             Hi! Welcome to <a href="about.html" brand-name brand-name-welcome">Libra</a>, 

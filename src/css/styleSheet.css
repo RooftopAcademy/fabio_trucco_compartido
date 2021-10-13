@@ -15,9 +15,9 @@ Crear varios archivos css que trabajen distintos aspectos y elementos del html(m
 /*SaaS permite modularizar todo el archivo css sin comentarios, espacios, líneas ni tabulaciones, compi
 lando todo el archivo en uno */
 
-
-
 html, body{
+    position: relative;
+    z-index: 1;
     padding: 0;
     margin: 0
 }
@@ -34,14 +34,12 @@ html, body{
 }
 
 .main-header{
-    flex-wrap: wrap;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-blend-mode: multiply;
     background: rgb(3,3,28);
     background: linear-gradient(90deg, rgba(3,3,28,0.8015581232492998) 100%, rgba(3,3,28,0.3309698879551821) 100%, rgba(61,9,121,1) 100%, rgba(1,21,25,1) 100%);
-    background-size: cover;
 }
 .main-header-links ul{
     padding-right: 8em;
@@ -142,29 +140,32 @@ html, body{
     display:inline-block;
 }
 .hamburger{
-    position:sticky;
+
+    position: sticky;
     display: none;
     margin-top:0.54em;
     padding-left: 0.7em;
-    margin-right: 1.5em;
+    margin-right: 0.8em;
     border-radius: 1px;
     color: white;
     font-size:50px;
     cursor:pointer;
+    
 }
-.hamburger:hover{
-    background-color: rgb(0, 0, 0, 0.1);
+
+.nav-bar{
+    color: white;
 }
 
 
 .nav-menu {
     display: none;
-    margin-right: 4.6578em;
-    float: left;
+    right: 0;
     justify-content: space-between;
     align-items: left;
     background-color: rgb(36, 34, 34, 0.822);
-    transition: 0.5s;
+    position: absolute;  
+    z-index: 2;
 }
 
 .nav-item {
@@ -385,7 +386,7 @@ html, body{
 }
 
 
-@media all and (max-width: 860px){
+@media all and (max-width: 930px){
     .hamburger{
         display: flex;
         cursor: pointer;
@@ -399,6 +400,7 @@ html, body{
     .content{
         margin:0; 
     }
+
 }
 
 

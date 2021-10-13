@@ -1,11 +1,15 @@
 import footerComponent from "./footerComponent";
 import headerComponent from "./headerComponent";
+import navMenuComponent from './navMenuComponent';
 
 export default function homeComponent() : string {
   return  `
   ${headerComponent()}
   <main class="main-content">
         <div class="content home">
+
+            ${navMenuComponent()}
+            
             <picture class="column" id="home-pic">
                 <img src="./images/chess-drawing.png" alt="chess family">
             </picture>
