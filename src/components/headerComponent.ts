@@ -21,7 +21,7 @@ export default function headerComponent(): string {
               <li>
                   <a href="#/cart">
                       <div class="cart-link">
-                          <img class="shopping-cart mh"src="/images/shopping-cart.png" alt="cart"><span class="cart-amount">${cart.getAmount()}</span>
+                          <img class="shopping-cart mh"src="./resources/images/shopping-cart.png" alt="cart"><span class="cart-amount">${cart.getAmount()}</span>
                       </div>
                   </a>
               </li>

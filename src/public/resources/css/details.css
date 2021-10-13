@@ -112,11 +112,11 @@ up-section{
 }
 
 .arrow{
-    content: url(/images/arrow-down.png);
+    content: url(../images/arrow-down.png);
 }
 
 .arrow-up{
-    content: url(/images/arrow-up.png);
+    content: url(../images/arrow-up.png);
     
 }
 

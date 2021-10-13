@@ -5,17 +5,17 @@ export default function footerComponent(): string {
       <ul class="footer-nav">
           <li class="footer-logos">
               <a href="http://twitter.com/" target="_blank">
-                  <img src="logos/twitter/white.png" alt="twitter">
+                  <img src="./resources/logos/twitter/white.png" alt="twitter">
               </a>
           </li>
           <li class="footer-logos">
               <a href="http://facebook.com/" target="_blank">
-                  <img src="logos/facebook/white.png" alt="facebook">
+                  <img src="./resources/logos/facebook/white.png" alt="facebook">
               </a>
           </li>
           <li class="footer-logos">
               <a href="http://instagram.com/" target="_blank">
-                  <img class="insta" src="logos/instagram/instagram.png" alt="twitter">
+                  <img class="insta" src="./resources/logos/instagram/instagram.png" alt="twitter">
               </a>
           </li>
       </ul>
