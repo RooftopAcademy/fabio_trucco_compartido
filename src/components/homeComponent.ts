@@ -11,7 +11,7 @@ export default function homeComponent() : string {
             ${navMenuComponent()}
             
             <picture class="column" id="home-pic">
-                <img src="./resources/images/chess-drawing.png" alt="chess family">
+                <img src="../public/images/chess-drawing.png" alt="chess family">
             </picture>
             <div class="column">
 

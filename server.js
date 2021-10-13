@@ -1,5 +1,6 @@
 const http = require('http')
 const fs = require('fs')
+const path = require('path');
 const mime = require('mime-types')
 
 
@@ -59,33 +60,31 @@ http.createServer(function (req, res) {
 
   if(req.url.includes('.')) {
 
-    return myExpress.sendFile(res, './public' + req.url)
+    let file = path.resolve('C:/fabio_trucco_compartido', 'public', req.url) 
+
+    return myExpress.sendFile(res, file)
 
   }
 
   if(req.url === '/'){
 
-    let html = `<html>
-    <body>
-      Hello from html
-    </body>
-    </html>`;
+    let file = path.resolve('C:/fabio_trucco_compartido', 'public', 'index.html')
 
-    return myExpress.html(res, html)
+    return myExpress.sendFile(res, file)
 
   }
 
-  if(req.url == '/favicon.ico'){
+  // if(req.url == '/favicon.ico'){
 
-    return myExpress.sendFile(res, './favicon.ico')
+  //   return myExpress.sendFile(res, './favicon.ico')
     
-  }
+  // }
 
-  if(req.url == '/api/version'){
+  // if(req.url == '/api/version'){
 
-    return myExpress.JSON(res, app)
+  //   return myExpress.JSON(res, app)
 
-  }
+  // }
 
   res.writeHead(404)
 
