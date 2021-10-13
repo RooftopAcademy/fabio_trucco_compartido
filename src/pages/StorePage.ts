@@ -2,7 +2,7 @@ import PageInterface from "../interfaces/PageInterface";
 import Product from "../entities/Product";
 import storeComponent from "../components/storeComponent";
 import productsList from "../views/productsList";
-import displayHamburgerMenu from '../helpers/hamburger';
+import displayHamburgerMenu from '../helpers/displayHamburger';
 import backToTop from '../helpers/backToTop';
 import showAsideMenu from '../helpers/showAsideMenu';
 import addToCart from '../helpers/addToCart';

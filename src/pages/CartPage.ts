@@ -1,6 +1,6 @@
 import PageInterface from '../interfaces/PageInterface';
 import cartComponent from "../components/cartComponent";
-import displayHamburgerMenu from '../helpers/hamburger';
+import displayHamburgerMenu from '../helpers/displayHamburger';
 import cartItemList from '../views/cartItemList';
 import purchaseComponent from '../components/purchaseComponent';
 import discardProductFromCart from '../helpers/discardProductFromCart';

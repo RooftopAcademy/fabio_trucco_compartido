@@ -1,6 +1,6 @@
 import PageInterface from "../interfaces/PageInterface";
 import aboutComponent from '../components/aboutComponent';
-import displayHamburgerMenu from '../helpers/hamburger';
+import displayHamburgerMenu from '../helpers/displayHamburger';
 
 
 export default class AboutPage implements PageInterface {
