@@ -1,10 +1,9 @@
-const http = require('http')
-const fs = require('fs')
 const path = require('path');
-const mime = require('mime-types')
 const express = require('express');
-
+const dotenv = require('dotenv')
 const app = express();
+
+dotenv.config()
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -19,6 +18,13 @@ app.get('/', (req, res) => {
 
 app.use("/dist", express.static(__dirname + "/dist"));
 
-app.listen(3500)
+const PORT = process.env.PORT;
 
-console.log('Server on port 3500')
+app.locals.baseuUrl = process.env.HOST + ':' + PORT;
+
+app.listen(3500, () => {
+
+  console.log('Server on port 3500')
+
+})
+
