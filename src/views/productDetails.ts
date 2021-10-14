@@ -31,11 +31,11 @@ export default function productDetails(product: Product) {
         <button class="buy-button" onclick="window.location.href='#/cart'" id ="buy-button">Go to cart</button>
         <br><br>
         <div class="features">
-            <img  src="../public/images/security.png" alt="safe" class="icon-image">
+            <img  src="/images/security.png" alt="safe" class="icon-image">
             <p class="buy-text">Get the product you expected or we'll give you back the money.</p>
         </div>
         <div class="features">
-            <img src="../public/images/guarantee.png" alt="guarantee" class="icon-image">
+            <img src="/images/guarantee.png" alt="guarantee" class="icon-image">
             <p class="buy-text">${product.getGuarantee()} years factory guarantee.</p>
         </div>
     </div>
