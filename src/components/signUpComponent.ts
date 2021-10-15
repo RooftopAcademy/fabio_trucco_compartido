@@ -22,7 +22,7 @@ export default function signUpComponent() : string {
       </div>
       
       <div class="container" id="container-form">
-        <form action="" id="user-form">
+        <form action="/register" id="user-form" method="post">
       
             <div class="label" id="label-lmail">
                 <label for="lmail">E-mail</label>
@@ -85,7 +85,7 @@ export default function signUpComponent() : string {
             <div class="label" id="label-password">
                 <label for="password">Password</label>
             </div>
-            <input type="text" id="password" name="password" placeholder="No less than 6 chars">
+            <input type="password" id="password" name="password" placeholder="No less than 6 chars">
       
             <input type="checkbox" class="check" id="checkmail" checked>
             <label for="check-label" >&nbsp;&nbsp;Send me e-mails and updated offers!</label>

@@ -21,13 +21,13 @@ export default function homeComponent() : string {
                     and professional chess sets. <a href="#/store">Check it out!</a>
                 </h1>
 
-                <div class="login-form">
+                <form class="login-form" action="/login" method="post">
                     <label for="user-login" class="label">Your nick or email</label>
                     <input type="text" class="input-login" placeholder="   e.g.  awesome@nick.com">
 
                     <label for="password-login" class="label">Your password</label>
-                    <input type="text" class="input-login" placeholder="   Your password here">
-                </div>
+                    <input type="password" class="input-login" placeholder="   Your password here">
+                </from>
 
                 <button class="login-button" id="login-button">Login</button>
                 
