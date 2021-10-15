@@ -1,4 +1,5 @@
 import Product from "../entities/Product";
+import navMenuComponent from "../components/navMenuComponent";
 
 export default function productDetails(product: Product) {
     
@@ -16,6 +17,9 @@ export default function productDetails(product: Product) {
     }
     
     return `
+    
+    ${navMenuComponent()}
+
     <div class="up-section">
     <div class="article-image">
         <img class="detail-image" src="${product.getImage()}" alt="CHESS">

@@ -15,7 +15,6 @@ export default function productDetailsComponent(): string {
   
       <div class="content details">
         
-        ${navMenuComponent()}
         
       </div>
   

@@ -1,24 +1,13 @@
 import Product from "../entities/Product";
+import ProductInterface from "../interfaces/ProductInterface";
 
 export default class ProductFactory{
-    static create(obj: {
-        id: number, 
-        name: string,
-        maker: string, 
-        material: string, 
-        theme: string, 
-        price: number,
-        stock: number,
-        stars: number,
-        description: string,
-        image: string,
-        buys: number,
-        guarantee: number}): Product {
+    static create(obj: ProductInterface): Product {
 
         let product = new Product;
 
         product.setId(obj['id'])
-        product.setName(obj['name'])
+        product.setName(obj['pName'])
         product.setMaker(obj['maker'])
         product.setMaterial(obj['material'])
         product.setTheme(obj['theme'])
