@@ -1,4 +1,5 @@
-# 🚀 Welcome to your new awesome project!
+## Proyecto individual para el bootcamp de Rooftop Academy:
+## e-commerce de juegos de ajedrez
 
 This project has been created using **webpack-cli**, you can now run
 
